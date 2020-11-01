@@ -1,2 +1,2 @@
-# vue-node-mysql-generated
-A Vue+Node+Mysql starter only using Routes and Rest GENERATORS
+# A starter done only using Mysql and Express REST generators 
+
