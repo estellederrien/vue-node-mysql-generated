@@ -21,7 +21,8 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
 - https://github.com/DesignRevision/shards-dashboard-vue
 
 The challenge is to add some great Middlewares, and JWT auth to them !
-Let's see if devs are really 10* fasters using theses tools !
+Let's see if devs are really 10* fasters using theses tools ! 
+Truth or legend ?
 
 ![ScreenShot](screenshot2.png)
 
@@ -42,7 +43,7 @@ Template :
 
 Le défi est d'ajouter un middleware, et une authentification JWT à ces services REST générés.
 Voyons si les développeurs sont 10 * plus rapides avec ces outils ... ?
-Grâce à ces générateurs , plus besoin d'écrire de code back end pour des bases relationelles, sauf dans les cas très spéciaux ( Reportings avancés, Data science, jointures complexes...)
+Grâce à ces générateurs , plus besoin d'écrire de code back end pour des bases relationelles, sauf dans les cas très spéciaux ( Reportings avancés, Data science, jointures complexes...), vérité ou légende ?
 
 
 ## Description (German) .
