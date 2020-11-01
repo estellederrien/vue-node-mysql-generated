@@ -52,7 +52,7 @@ if (port == 80) {
 if (port == 80) {
     // LOCALHOST AND OPENODE 
     mysql_initialize();
-    mysql_crud_routes_generation();
+    // mysql_crud_routes_generation();
 } else {
     // It's heroku, so we need this to hide credentials: 
     get_heroku_env_vars();
@@ -96,12 +96,6 @@ app.use(
 // -------------------------------
 // RELATIONAL DATABASES HANDLINGS (MYSQL,SQLITE)
 // -------------------------------
-
-// -------------------------------
-// PROXY ALL API ROUTES QUERIES TO PORT 3000 TO USE WITH MYSQL ROUTES GENERATOR https://stackoverflow.com/questions/10435407/proxy-with-express-js
-// -------------------------------
-var proxy = require('express-proxy-server');
-app.use('/api', proxy('http://localhost:3000/api'));
 
 /*
  * Connect mysql using sequelize
@@ -148,6 +142,7 @@ async function mysql_initialize() {
     const connection = await mysql.createConnection(token);
     await connection.query('CREATE DATABASE IF NOT EXISTS ' + config.mysql.name + ';');
     mysql_connect();
+    write_connexion_to_logs()
 }
 
 /*
@@ -167,10 +162,16 @@ async function mysql_initialize() {
  */
 async function mysql_crud_routes_generation() {
     system('xmysql -h localhost -u root -p password -n 3000  -d ' + config.mysql.name).then(output => {
-        console.log(output)
-    }).catch(error => {
-        console.error(error)
-    })
+            console.log(output)
+            write_connexion_to_logs()
+        }).catch(error => {
+            console.error(error)
+        })
+        // -------------------------------
+        // PROXY ALL API ROUTES QUERIES TO PORT 3000 TO USE WITH MYSQL ROUTES GENERATOR https://stackoverflow.com/questions/10435407/proxy-with-express-js
+        // -------------------------------
+    var proxy = require('express-proxy-server');
+    app.use('/api', proxy('http://localhost:3000/api'));
 }
 /*
  * Create models if no exist
@@ -200,7 +201,7 @@ function connect_sqlite() {
     sequelize
         .authenticate()
         .then(() => {
-            console.log('Connection has been established successfully.');
+            console.log('Connection to SQLITE has been established successfully.');
         })
         .catch(err => {
             console.error('Unable to connect to the database:', err);
@@ -232,8 +233,6 @@ function write_connexion_to_logs() {
  * @error  none
  */
 function get_heroku_env_vars() {
-    config.ftp_config.password = process.env.ftp_password;
-    config.mongoDb_atlas_db = "mongodb+srv://jose:" + process.env.mongodb_atlas_pwd + "@cluster0-6kmcn.azure.mongodb.net/vue-starter-webpack?retryWrites=true&w=majority";
     config.cloudinary_token.api_secret = process.env.cloudinary_password;
 }
 // -------------------------------

@@ -1,6 +1,5 @@
 {
     "dev": false,
-    "db_name": "vue-starter-webpack",
     "node_file_path": "./tmp/files/",
     "cloudinary_token": {
         "cloud_name": "ddq5asuy2",
