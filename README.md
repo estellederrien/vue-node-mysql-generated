@@ -13,7 +13,7 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
 - Sequelize-restful : https://github.com/sequelize/sequelize-restful
 - Sequelize Automate : https://www.npmjs.com/package/sequelize-automate
 
-<b>Mysql:
+<b>Mysql:</b>
 - dbCrud : https://github.com/johnroers/dbCRUD
 - xMysql : https://github.com/o1lab/xmysql
 
