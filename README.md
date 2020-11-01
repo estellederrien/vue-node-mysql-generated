@@ -6,18 +6,18 @@
 https://vue-node-mysql-generated.herokuapp.com/
 
 ## Description .
-This Full Stack starter will demo out and test the following Sequelize REST generators, and Mysql/Postgres/Sqlite Rest Queries generators . 
+This Full Stack starter will demo out and test the following Sequelize REST <b>generators</b>, and Mysql/Postgres/Sqlite Rest Queries <b>generators</b> . 
 
-Sequelize:
+<b>Sequelize:</b>
 - Restizr : https://www.npmjs.com/package/restizr
 - Sequelize-restful : https://github.com/sequelize/sequelize-restful
 - Sequelize Automate : https://www.npmjs.com/package/sequelize-automate
 
-Mysql :
+<b>Mysql:
 - dbCrud : https://github.com/johnroers/dbCRUD
 - xMysql : https://github.com/o1lab/xmysql
 
-Template : 
+<b>Used Vue.js Template:</b> 
 - https://github.com/DesignRevision/shards-dashboard-vue
 
 The challenge is to add some great Middlewares, and JWT auth to them !
