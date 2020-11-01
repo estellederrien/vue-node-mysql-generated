@@ -1,0 +1,13 @@
+{
+    "dev": false,
+    "db_name": "vue-starter-webpack",
+    "node_file_path": "./tmp/files/",
+    "cloudinary_token": {
+        "cloud_name": "ddq5asuy2",
+        "api_key": "354237299578646",
+        "api_secret": "x"
+    },
+    "logs_path": "tmp/logs/logs.txt",
+    "mysql": { "name": "starter", "user": "root", "password": "password", "dialect": "mysql", "host": "localhost", "port": "3306" },
+    "sqlite": { "storage": "db/database.sqlite" }
+}

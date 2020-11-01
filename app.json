@@ -1,0 +1,7 @@
+{
+    "name": "My Vue+Node+Mysql starter only using Routes and Mysql relational Rest GENERATORS, allowing 10* faster devs . ",
+    "description": "Testing out Generated back end",
+    "repository": "https://github.com/nicolas15000/vue-node-mysql-generated",
+    "logo": "https://raw.githubusercontent.com/firefly-iii/firefly-iii/main/public/mstile-150x150.png",
+    "keywords": ["node", "express", "vue", "mongodb", "atlas"]
+}
