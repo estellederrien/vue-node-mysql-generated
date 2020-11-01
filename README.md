@@ -3,7 +3,7 @@
 ![ScreenShot](screenshot.png)
 
 ## Description .
-This starter will demo out and test the following Sequelize REST generators, and Mysql/Postgres/Sqlite Rest Queries generators .
+This Full Stack starter will demo out and test the following Sequelize REST generators, and Mysql/Postgres/Sqlite Rest Queries generators .
 
 Sequelize:
 - Restizr : https://www.npmjs.com/package/restizr
