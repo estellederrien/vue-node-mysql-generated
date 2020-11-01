@@ -21,7 +21,7 @@ Template :
 - https://github.com/DesignRevision/shards-dashboard-vue
 
 The challenge is to add some great Middlewares, and JWT auth to them !
-Let's see if devs are 10* fasters with theses tools !
+Let's see if devs are really 10* fasters using theses tools !
 
 ![ScreenShot](screenshot2.png)
 
