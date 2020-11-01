@@ -23,7 +23,8 @@ The app will use the following templates :
 - https://github.com/DesignRevision/shards-dashboard-vue
 
 <b> Mysql Database template : </b>
-- https://github.com/datacharmer/test_db
+- https://www.mysqltutorial.org/mysql-sample-database.aspx/ (Small for online demo)
+- https://github.com/datacharmer/test_db (Big 168mo for localhost testings)
 
 The challenge is to add some great Middlewares, and JWT auth to them !
 Let's see if devs are really 10* fasters using theses tools ! 
@@ -45,11 +46,12 @@ Mysql:
 
 On va utiliser les templates suivants pour la démo : 
 
-Template : 
+Vue Template : 
 - https://github.com/DesignRevision/shards-dashboard-vue
 
 Mysql Database template : 
-- https://github.com/datacharmer/test_db
+- https://www.mysqltutorial.org/mysql-sample-database.aspx/ (Small for online demo)
+- https://github.com/datacharmer/test_db (Big 168mo for localhost testings)
 
 Le défi est d'ajouter un middleware, et une authentification JWT à ces services REST générés.
 Voyons si les développeurs sont 10 * plus rapides avec ces outils ... ?
@@ -71,11 +73,12 @@ MySQL:
 
 
 
-Template : 
+Vue Template : 
 - https://github.com/DesignRevision/shards-dashboard-vue
 
-Mysql Database template : 
-- https://github.com/datacharmer/test_db
+Mysql Database templates : 
+- https://www.mysqltutorial.org/mysql-sample-database.aspx/ (Small for online demo)
+- https://github.com/datacharmer/test_db (Big 168mo for localhost testings)
 
 Die Herausforderung besteht darin, einige großartige Middlewares und JWT-Authentifizierung hinzuzufügen!
 Mal sehen, ob Entwickler mit diesen Tools 10 * schneller sind!
@@ -94,8 +97,9 @@ MySQL的：
 Template : 
 - https://github.com/DesignRevision/shards-dashboard-vue
 
-Mysql Database template : 
-- https://github.com/datacharmer/test_db
+Mysql Database templates : 
+- https://www.mysqltutorial.org/mysql-sample-database.aspx/ (Small for online demo)
+- https://github.com/datacharmer/test_db (Big 168mo for localhost testings)
 
 挑战在于添加一些出色的中间件，并向它们添加JWT auth！
 让我们看看使用这些工具，开发人员的速度快10倍！
