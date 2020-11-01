@@ -1,5 +1,6 @@
-# A starter done only using Mysql and Express REST generators 
+# My starter done only using Mysql and Express REST generators 
 
+![ScreenShot](screenshot.png)
 
 ## Description .
 This starter will demo out the following Sequelize REST generators, and Mysql Rest Queries generators .
