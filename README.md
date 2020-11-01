@@ -38,6 +38,7 @@ Template :
 
 Le défi est d'ajouter un middleware, et une authentification JWT à ces services REST générés.
 Voyons si les développeurs sont 10 * plus rapides avec ces outils ... ?
+Grâce à ces générateurs , plus besoin d'écrire de code back end pour des bases relationelles, sauf dans les cas très spéciaux ( Reportings avancés, Data science, jointures complexes...)
 
 
 ## Description (German) .
