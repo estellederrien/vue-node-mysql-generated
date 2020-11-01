@@ -3,7 +3,7 @@
 ![ScreenShot](screenshot.png)
 
 ## Description .
-This starter will demo out the following Sequelize REST generators, and Mysql Rest Queries generators .
+This starter will demo out the following Sequelize REST generators, and Mysql/Postgres/Sqlite Rest Queries generators .
 
 Sequelize:
 - Restizr : https://www.npmjs.com/package/restizr
@@ -13,6 +13,9 @@ Sequelize:
 Mysql :
 - dbCrud : https://github.com/johnroers/dbCRUD
 - xMysql : https://github.com/o1lab/xmysql
+
+Template : 
+- https://github.com/DesignRevision/shards-dashboard-vue
 
 The challenge is to add some great Middlewares, and JWT auth to them !
 Let's see if devs are 10* fasters with theses tools !
@@ -29,6 +32,9 @@ Sequelize:
 Mysql:
 - dbCrud: https://github.com/johnroers/dbCRUD
 - xMysql: https://github.com/o1lab/xmysql
+
+Template : 
+- https://github.com/DesignRevision/shards-dashboard-vue
 
 Le défi est d'ajouter un middleware, et une authentification JWT à ces services REST générés.
 Voyons si les développeurs sont 10 * plus rapides avec ces outils ... ?
@@ -47,6 +53,9 @@ MySQL:
 - dbCrud: https://github.com/johnroers/dbCRUD
 - xMysql: https://github.com/o1lab/xmysql
 
+Template : 
+- https://github.com/DesignRevision/shards-dashboard-vue
+
 Die Herausforderung besteht darin, einige großartige Middlewares und JWT-Authentifizierung hinzuzufügen!
 Mal sehen, ob Entwickler mit diesen Tools 10 * schneller sind!
 
@@ -60,6 +69,9 @@ Mal sehen, ob Entwickler mit diesen Tools 10 * schneller sind!
 MySQL的：
 -dbCrud：https://github.com/johnroers/dbCRUD
 -xMysql：https://github.com/o1lab/xmysql
+
+Template : 
+- https://github.com/DesignRevision/shards-dashboard-vue
 
 挑战在于添加一些出色的中间件，并向它们添加JWT auth！
 让我们看看使用这些工具，开发人员的速度快10倍！
