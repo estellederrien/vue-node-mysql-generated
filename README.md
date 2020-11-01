@@ -17,8 +17,11 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
 - dbCrud : https://github.com/johnroers/dbCRUD
 - xMysql : https://github.com/o1lab/xmysql
 
-<b>Used Vue.js Template:</b> 
+<b>Vue.js Template:</b> 
 - https://github.com/DesignRevision/shards-dashboard-vue
+
+<b> Mysql Database template : </b>
+- https://github.com/datacharmer/test_db
 
 The challenge is to add some great Middlewares, and JWT auth to them !
 Let's see if devs are really 10* fasters using theses tools ! 
@@ -41,6 +44,9 @@ Mysql:
 Template : 
 - https://github.com/DesignRevision/shards-dashboard-vue
 
+Mysql Database template : 
+- https://github.com/datacharmer/test_db
+
 Le défi est d'ajouter un middleware, et une authentification JWT à ces services REST générés.
 Voyons si les développeurs sont 10 * plus rapides avec ces outils ... ?
 Grâce à ces générateurs , plus besoin d'écrire de code back end pour des bases relationelles, sauf dans les cas très spéciaux ( Reportings avancés, Data science, jointures complexes...), vérité ou légende ?
@@ -62,6 +68,9 @@ MySQL:
 Template : 
 - https://github.com/DesignRevision/shards-dashboard-vue
 
+Mysql Database template : 
+- https://github.com/datacharmer/test_db
+
 Die Herausforderung besteht darin, einige großartige Middlewares und JWT-Authentifizierung hinzuzufügen!
 Mal sehen, ob Entwickler mit diesen Tools 10 * schneller sind!
 
@@ -78,6 +87,9 @@ MySQL的：
 
 Template : 
 - https://github.com/DesignRevision/shards-dashboard-vue
+
+Mysql Database template : 
+- https://github.com/datacharmer/test_db
 
 挑战在于添加一些出色的中间件，并向它们添加JWT auth！
 让我们看看使用这些工具，开发人员的速度快10倍！
