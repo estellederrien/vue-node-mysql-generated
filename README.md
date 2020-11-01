@@ -1,4 +1,4 @@
-# My starter done only using Mysql and Express REST generators 
+# My starter done only using Relational DBs and Express REST generators 
 
 ![ScreenShot](screenshot.png)
 
