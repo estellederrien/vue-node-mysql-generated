@@ -32,9 +32,11 @@ Mysql:
 Le défi est d'ajouter un middleware, et une authentification JWT à ces services REST générés.
 Voyons si les développeurs sont 10 * plus rapides avec ces outils ... ?
 
-Dieser Starter führt die folgenden Sequelize REST-Generatoren und MySQL Rest Queries-Generatoren vor.
 
 ## Description (German) .
+
+
+Dieser Starter führt die folgenden Sequelize REST-Generatoren und MySQL Rest Queries-Generatoren vor.
 Fortsetzung:
 - Restizr: https://www.npmjs.com/package/restizr
 - Sequelize-restful: https://github.com/sequelize/sequelize-restful
