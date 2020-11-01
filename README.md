@@ -20,6 +20,8 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
 <b>Vue.js Template:</b> 
 - https://github.com/DesignRevision/shards-dashboard-vue
 
+The app will use the following templates : 
+
 <b> Mysql Database template : </b>
 - https://github.com/datacharmer/test_db
 
@@ -64,6 +66,8 @@ Fortsetzung:
 MySQL:
 - dbCrud: https://github.com/johnroers/dbCRUD
 - xMysql: https://github.com/o1lab/xmysql
+
+On va utiliser les templates suivants pour la démo : 
 
 Template : 
 - https://github.com/DesignRevision/shards-dashboard-vue
