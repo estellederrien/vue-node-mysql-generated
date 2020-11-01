@@ -2,6 +2,9 @@
 
 ![ScreenShot](screenshot.png)
 
+## Live testing :
+https://vue-node-mysql-generated.herokuapp.com/
+
 ## Description .
 This Full Stack starter will demo out and test the following Sequelize REST generators, and Mysql/Postgres/Sqlite Rest Queries generators . 
 
