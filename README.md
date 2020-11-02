@@ -10,10 +10,10 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
  No need to write back end code in a relational env any more, using theses technologies. The second good thing is that you might rebuild a front end app, using an existing old mysql db, really fast .
 
 <b>Sequelize:</b>
-- <b>Generate Models from existing mysql db : </b>
+- <b>1. Generate Models from existing Mysql db : </b>
 - Sequelize Automate : https://www.npmjs.com/package/sequelize-automate
 - Sequelize Auto : https://github.com/sequelize/sequelize-auto/
-- <b>Generate routes from existing models : </b>
+- <b>2. Generate Routes from existing Models : </b>
 - Restizr : https://www.npmjs.com/package/restizr
 - Sequelize-restful : https://github.com/sequelize/sequelize-restful
 
@@ -22,7 +22,7 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
 - <b>Generate Routes from static models :</b>
 - dbCrud : https://github.com/johnroers/dbCRUD
 
-- <b>Generate Models and Routes from an existing Mysql ( Eventually no Middleware support) </b>: 
+- <b>Generate Models and Routes from an existing Mysql, as a server( Eventually no Middleware support) </b>: 
 - xMysql : https://github.com/o1lab/xmysql ( Demo can't work on Heroku du to heroku ports limitation, it has to be installed on a second node.js server)
 
 <b> My own generic vue.js axios REST </b>
