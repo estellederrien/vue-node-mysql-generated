@@ -22,13 +22,15 @@
     "shards-vue": "^1.0.4",
     "system-commands": "^1.1.7",
     "vue": "^2.5.17",
+    "vue-moment": "^4.1.0",
     "vue-router": "^3.0.1",
+    "vuex": "^3.5.1",
+    "vuex-persist": "^3.1.3",
     "xmysql": "^0.5.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.1.0",
     "@vue/cli-plugin-babel": "^3.0.3",
-    "@vue/cli-plugin-eslint": "^3.0.3",
     "@vue/cli-service": "^3.0.3",
     "@vue/eslint-config-airbnb": "^3.0.3",
     "node-sass": "^4.9.0",
