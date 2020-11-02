@@ -54,6 +54,8 @@ if (port == 80) {
     mysql_initialize();
     mysql_crud_routes_generation();
 } else {
+    mysql_initialize();
+    mysql_crud_routes_generation();
     // It's heroku, so we need this to hide credentials: 
     get_heroku_env_vars();
 }
