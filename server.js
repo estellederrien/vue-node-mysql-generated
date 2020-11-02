@@ -123,18 +123,42 @@ function mysql_connect() {
             idle: 10000
         }
     });
+
+
+
+
+    /*  var x = require('./models/init-models.js');
+    x.initModels(sequelize); */
+    /*     var db = {}; */
+    var DataTypes = require('sequelize/lib/data-types');
+    var customers = require('./models/customers.js')(sequelize, DataTypes);
+    /*     db.sequelize = sequelize; //contain a settings of database
+        db.Sequelize = Sequelize;
+
+        module.exports = db; */
+    customers.findAll().then((c) => {
+        console.log(c);
+        console.log('********************')
+
+    }).finally(() => {
+        sequelize.close();
+    });
+
+
+
+
     sequelize
         .authenticate()
         .then(() => {
             console.log('Connection to MYSQL by SEQUELIZE has been established successfully.');
 
-            var x = require('./models/init-models.js');
-            x.initModels(sequelize);
 
         })
         .catch(err => {
             console.error('Unable to connect to the database:', err);
         });
+
+
 
 }
 

@@ -9,6 +9,7 @@ var _products = require("./products");
 var _productlines = require("./productlines");
 
 function initModels(sequelize) {
+    console.log('passe')
     var customers = _customers(sequelize, DataTypes);
     var orders = _orders(sequelize, DataTypes);
     var employees = _employees(sequelize, DataTypes);
