@@ -16,7 +16,7 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
 
 <b>Mysql:</b>
 - dbCrud : https://github.com/johnroers/dbCRUD
-- xMysql : https://github.com/o1lab/xmysql
+- xMysql : https://github.com/o1lab/xmysql ( Demo can't work on Heroku du to ports limitation)
 
 <b> My own generic vue.js axios REST </b>
 - GenericAxiosServices.js
@@ -47,7 +47,7 @@ Sequelize:
 
 Mysql:
 - dbCrud: https://github.com/johnroers/dbCRUD
-- xMysql: https://github.com/o1lab/xmysql
+- xMysql: https://github.com/o1lab/xmysql  ( Demo can't work on Heroku du to ports limitation)
 
 On va utiliser les templates suivants pour la démo : 
 
@@ -77,7 +77,7 @@ Fortsetzung:
 
 MySQL:
 - dbCrud: https://github.com/johnroers/dbCRUD
-- xMysql: https://github.com/o1lab/xmysql
+- xMysql: https://github.com/o1lab/xmysql  ( Demo can't work on Heroku du to ports limitation)
 
 <b> My own generic vue.js axios REST </b>
 - GenericAxiosServices.js
@@ -102,7 +102,7 @@ Mal sehen, ob Entwickler mit diesen Tools 10 * schneller sind!
 
 MySQL的：
 -dbCrud：https://github.com/johnroers/dbCRUD
--xMysql：https://github.com/o1lab/xmysql
+-xMysql：https://github.com/o1lab/xmysql  ( Demo can't work on Heroku du to ports limitation)
 
 <b> My own generic vue.js axios REST </b>
 - GenericAxiosServices.js
