@@ -52,7 +52,7 @@ if (port == 80) {
 if (port == 80) {
     // LOCALHOST AND OPENODE 
     mysql_initialize();
-    // mysql_crud_routes_generation();
+    mysql_crud_routes_generation();
 } else {
     // It's heroku, so we need this to hide credentials: 
     get_heroku_env_vars();

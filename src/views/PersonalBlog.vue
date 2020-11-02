@@ -54,6 +54,9 @@ import UsersByDevice from '@/components/blog/UsersByDeviceLite.vue';
 import NewDraft from '@/components/blog/NewDraft.vue';
 import Discussions from '@/components/blog/Discussions.vue';
 
+import GenericAxiosServices from '@/api-services/GenericAxiosServices';
+
+
 export default {
   components: {
     SmallStats,
@@ -163,6 +166,13 @@ export default {
       }];
     },
   },
+  created() {
+    GenericAxiosServices.getAll("customers").then((response) => {
+      console.log(response.data);
+    }).catch((error) => {
+      console.log(error.response.data);
+    });
+  }
 };
 </script>
 
