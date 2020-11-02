@@ -165,13 +165,6 @@ export default {
         }],
       }];
     },
-  },
-  created() {
-    GenericAxiosServices.getAll("customers").then((response) => {
-      console.log(response.data);
-    }).catch((error) => {
-      console.log(error.response.data);
-    });
   }
 };
 </script>

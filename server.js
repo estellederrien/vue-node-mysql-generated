@@ -170,7 +170,7 @@ async function mysql_crud_routes_generation() {
         // PROXY ALL API ROUTES QUERIES TO PORT 3000 TO USE WITH MYSQL ROUTES GENERATOR https://stackoverflow.com/questions/10435407/proxy-with-express-js
         // -------------------------------
     var proxy = require('express-proxy-server');
-    app.use('/api', proxy('http://localhost:3000/api'));
+    app.use('/xmysql/api', proxy('http://localhost:3000/api'));
 }
 /*
  * Create models if no exist
