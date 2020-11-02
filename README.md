@@ -19,7 +19,7 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
 
 
 <b>Mysql:</b>
-- <b>Generate Routes from static models </b>
+- <b>Generate Routes from static models :</b>
 - dbCrud : https://github.com/johnroers/dbCRUD
 
 - <b>Generate Models and Routes from an existing Mysql ( Eventually no Middleware support) </b>: 
