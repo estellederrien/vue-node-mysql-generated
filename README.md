@@ -1,12 +1,13 @@
 # My starter done only using Relational DBs and Express REST generators , and one Axios generic crud
-# No need to write back end code in a relational env any more.
+
 ![ScreenShot](screenshot.png)
 
 ## Live testing :
 https://vue-node-mysql-generated.herokuapp.com/
 
 ## Description .
-This Full Stack starter will demo out and test the following Sequelize REST <b>generators</b>, and Mysql/Postgres/Sqlite Rest Queries <b>generators</b> . 
+This Full Stack starter will demo out and test the following Sequelize REST <b>generators</b>, and Mysql/Postgres/Sqlite Rest Queries <b>generators</b> .
+ No need to write back end code in a relational env any more, using theses technologies.
 
 <b>Sequelize:</b>
 - Restizr : https://www.npmjs.com/package/restizr
