@@ -17,6 +17,10 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
 - dbCrud : https://github.com/johnroers/dbCRUD
 - xMysql : https://github.com/o1lab/xmysql
 
+<b> My own generic vue.js axios REST </b>
+- GenericAxiosServices.js
+
+
 The app will use the following templates : 
 
 <b>Vue.js Template:</b> 
@@ -53,6 +57,9 @@ Mysql Database template :
 - https://www.mysqltutorial.org/mysql-sample-database.aspx/ (Small for online demo)
 - https://github.com/datacharmer/test_db (Big 168mo for localhost testings)
 
+<b> My own generic vue.js axios REST </b>
+- GenericAxiosServices.js
+
 Le défi est d'ajouter un middleware, et une authentification JWT à ces services REST générés.
 Voyons si les développeurs sont 10 * plus rapides avec ces outils ... ?
 Grâce à ces générateurs , plus besoin d'écrire de code back end pour des bases relationelles, sauf dans les cas très spéciaux ( Reportings avancés, Data science, jointures complexes...), vérité ou légende ?
@@ -71,6 +78,8 @@ MySQL:
 - dbCrud: https://github.com/johnroers/dbCRUD
 - xMysql: https://github.com/o1lab/xmysql
 
+<b> My own generic vue.js axios REST </b>
+- GenericAxiosServices.js
 
 
 Vue Template : 
@@ -94,6 +103,9 @@ MySQL的：
 -dbCrud：https://github.com/johnroers/dbCRUD
 -xMysql：https://github.com/o1lab/xmysql
 
+<b> My own generic vue.js axios REST </b>
+- GenericAxiosServices.js
+
 Template : 
 - https://github.com/DesignRevision/shards-dashboard-vue
 
@@ -101,5 +113,5 @@ Mysql Database templates :
 - https://www.mysqltutorial.org/mysql-sample-database.aspx/ (Small for online demo)
 - https://github.com/datacharmer/test_db (Big 168mo for localhost testings)
 
-挑战在于添加一些出色的中间件，并向它们添加JWT auth！
+挑战在于添加一些出色的中间件，并向它们添加 JWT auth！
 让我们看看使用这些工具，开发人员的速度快10倍！
