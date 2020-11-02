@@ -22,7 +22,7 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
 - <b>Generate Routes from static models :</b>
 - dbCrud : https://github.com/johnroers/dbCRUD
 
-- <b>Generate Models and Routes from an existing Mysql, as a server( Eventually no Middleware support) </b>: 
+- <b>Generate Models and Routes from an existing Mysql, as a Standalone server( Eventually no Middleware support) </b>: 
 - xMysql : https://github.com/o1lab/xmysql ( Demo can't work on Heroku du to heroku ports limitation, it has to be installed on a second node.js server)
 
 <b> My own generic vue.js axios REST </b>
