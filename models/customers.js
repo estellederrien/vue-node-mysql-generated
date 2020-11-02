@@ -1,141 +1,86 @@
-const {
-  DataTypes
-} = require('sequelize');
+/* jshint indent: 2 */
 
-module.exports = sequelize => {
-  const attributes = {
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('customers', {
     customerNumber: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER(11),
       allowNull: false,
-      defaultValue: null,
-      primaryKey: true,
-      autoIncrement: false,
-      comment: null,
-      field: "customerNumber"
+      primaryKey: true
     },
     customerName: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "customerName"
+      allowNull: false
     },
     contactLastName: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "contactLastName"
+      allowNull: false
     },
     contactFirstName: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "contactFirstName"
+      allowNull: false
     },
     phone: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "phone"
+      allowNull: false
     },
     addressLine1: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "addressLine1"
+      allowNull: false
     },
     addressLine2: {
       type: DataTypes.STRING(50),
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "addressLine2"
+      allowNull: true
     },
     city: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "city"
+      allowNull: false
     },
     state: {
       type: DataTypes.STRING(50),
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "state"
+      allowNull: true
     },
     postalCode: {
       type: DataTypes.STRING(15),
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "postalCode"
+      allowNull: true
     },
     country: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "country"
+      allowNull: false
     },
     salesRepEmployeeNumber: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER(11),
       allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "salesRepEmployeeNumber",
       references: {
-        key: "employeeNumber",
-        model: "employees_model"
-      }
+        model: 'employees',
+        key: 'employeeNumber'
+      },
+      unique: "customers_ibfk_1"
     },
     creditLimit: {
       type: DataTypes.DECIMAL,
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "creditLimit"
+      allowNull: true
     }
-  };
-  const options = {
-    tableName: "customers",
-    comment: "",
-    indexes: [{
-      name: "salesRepEmployeeNumber",
-      unique: false,
-      type: "BTREE",
-      fields: ["salesRepEmployeeNumber"]
-    }]
-  };
-  const CustomersModel = sequelize.define("customers_model", attributes, options);
-  return CustomersModel;
+  }, {
+    sequelize,
+    tableName: 'customers',
+    timestamps: false,
+    indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "customerNumber" },
+        ]
+      },
+      {
+        name: "salesRepEmployeeNumber",
+        using: "BTREE",
+        fields: [
+          { name: "salesRepEmployeeNumber" },
+        ]
+      },
+    ]
+  });
 };

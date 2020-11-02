@@ -1,73 +1,59 @@
-const {
-  DataTypes
-} = require('sequelize');
+/* jshint indent: 2 */
 
-module.exports = sequelize => {
-  const attributes = {
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('orderdetails', {
     orderNumber: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER(11),
       allowNull: false,
-      defaultValue: null,
       primaryKey: true,
-      autoIncrement: false,
-      comment: null,
-      field: "orderNumber",
       references: {
-        key: "orderNumber",
-        model: "orders_model"
+        model: 'orders',
+        key: 'orderNumber'
       }
     },
     productCode: {
       type: DataTypes.STRING(15),
       allowNull: false,
-      defaultValue: null,
       primaryKey: true,
-      autoIncrement: false,
-      comment: null,
-      field: "productCode",
       references: {
-        key: "productCode",
-        model: "products_model"
+        model: 'products',
+        key: 'productCode'
       }
     },
     quantityOrdered: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "quantityOrdered"
+      type: DataTypes.INTEGER(11),
+      allowNull: false
     },
     priceEach: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "priceEach"
+      allowNull: false
     },
     orderLineNumber: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "orderLineNumber"
+      type: DataTypes.INTEGER(6),
+      allowNull: false
     }
-  };
-  const options = {
-    tableName: "orderdetails",
-    comment: "",
-    indexes: [{
-      name: "productCode",
-      unique: false,
-      type: "BTREE",
-      fields: ["productCode"]
-    }]
-  };
-  const OrderdetailsModel = sequelize.define("orderdetails_model", attributes, options);
-  return OrderdetailsModel;
+  }, {
+    sequelize,
+    tableName: 'orderdetails',
+    timestamps: false,
+    indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "orderNumber" },
+          { name: "productCode" },
+        ]
+      },
+      {
+        name: "productCode",
+        using: "BTREE",
+        fields: [
+          { name: "productCode" },
+        ]
+      },
+    ]
+  });
 };

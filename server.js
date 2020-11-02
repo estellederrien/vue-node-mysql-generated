@@ -52,10 +52,11 @@ if (port == 80) {
 if (port == 80) {
     // LOCALHOST AND OPENODE 
     mysql_initialize();
+    import_models();
     // mysql_crud_routes_generation();
 } else {
     mysql_initialize();
-    // mysql_crud_routes_generation();
+    import_models();
     // It's heroku, so we need this to hide credentials: 
     get_heroku_env_vars();
 }
@@ -111,6 +112,7 @@ app.use(
  * @error  none
  */
 function mysql_connect() {
+
     const sequelize = new Sequelize(config.mysql.db_name, config.mysql.user, config.mysql.password, {
         dialect: config.mysql.dialect,
         host: config.mysql.host,
@@ -125,10 +127,20 @@ function mysql_connect() {
         .authenticate()
         .then(() => {
             console.log('Connection to MYSQL by SEQUELIZE has been established successfully.');
+
+            var x = require('./models/init-models.js');
+            x.initModels(sequelize);
+
         })
         .catch(err => {
             console.error('Unable to connect to the database:', err);
         });
+
+}
+
+function import_models() {
+
+
 }
 
 /*

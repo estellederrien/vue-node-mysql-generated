@@ -1,105 +1,70 @@
-const {
-  DataTypes
-} = require('sequelize');
+/* jshint indent: 2 */
 
-module.exports = sequelize => {
-  const attributes = {
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('products', {
     productCode: {
       type: DataTypes.STRING(15),
       allowNull: false,
-      defaultValue: null,
-      primaryKey: true,
-      autoIncrement: false,
-      comment: null,
-      field: "productCode"
+      primaryKey: true
     },
     productName: {
       type: DataTypes.STRING(70),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "productName"
+      allowNull: false
     },
     productLine: {
       type: DataTypes.STRING(50),
       allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "productLine",
       references: {
-        key: "productLine",
-        model: "productlines_model"
-      }
+        model: 'productlines',
+        key: 'productLine'
+      },
+      unique: "products_ibfk_1"
     },
     productScale: {
       type: DataTypes.STRING(10),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "productScale"
+      allowNull: false
     },
     productVendor: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "productVendor"
+      allowNull: false
     },
     productDescription: {
       type: DataTypes.TEXT,
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "productDescription"
+      allowNull: false
     },
     quantityInStock: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "quantityInStock"
+      type: DataTypes.INTEGER(6),
+      allowNull: false
     },
     buyPrice: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "buyPrice"
+      allowNull: false
     },
     MSRP: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "MSRP"
+      allowNull: false
     }
-  };
-  const options = {
-    tableName: "products",
-    comment: "",
-    indexes: [{
-      name: "productLine",
-      unique: false,
-      type: "BTREE",
-      fields: ["productLine"]
-    }]
-  };
-  const ProductsModel = sequelize.define("products_model", attributes, options);
-  return ProductsModel;
+  }, {
+    sequelize,
+    tableName: 'products',
+    timestamps: false,
+    indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "productCode" },
+        ]
+      },
+      {
+        name: "productLine",
+        using: "BTREE",
+        fields: [
+          { name: "productLine" },
+        ]
+      },
+    ]
+  });
 };

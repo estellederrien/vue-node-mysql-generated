@@ -1,96 +1,58 @@
-const {
-  DataTypes
-} = require('sequelize');
+/* jshint indent: 2 */
 
-module.exports = sequelize => {
-  const attributes = {
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('offices', {
     officeCode: {
       type: DataTypes.STRING(10),
       allowNull: false,
-      defaultValue: null,
-      primaryKey: true,
-      autoIncrement: false,
-      comment: null,
-      field: "officeCode"
+      primaryKey: true
     },
     city: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "city"
+      allowNull: false
     },
     phone: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "phone"
+      allowNull: false
     },
     addressLine1: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "addressLine1"
+      allowNull: false
     },
     addressLine2: {
       type: DataTypes.STRING(50),
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "addressLine2"
+      allowNull: true
     },
     state: {
       type: DataTypes.STRING(50),
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "state"
+      allowNull: true
     },
     country: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "country"
+      allowNull: false
     },
     postalCode: {
       type: DataTypes.STRING(15),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "postalCode"
+      allowNull: false
     },
     territory: {
       type: DataTypes.STRING(10),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "territory"
+      allowNull: false
     }
-  };
-  const options = {
-    tableName: "offices",
-    comment: "",
-    indexes: []
-  };
-  const OfficesModel = sequelize.define("offices_model", attributes, options);
-  return OfficesModel;
+  }, {
+    sequelize,
+    tableName: 'offices',
+    timestamps: false,
+    indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "officeCode" },
+        ]
+      },
+    ]
+  });
 };

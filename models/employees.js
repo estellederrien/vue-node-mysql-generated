@@ -1,105 +1,78 @@
-const {
-  DataTypes
-} = require('sequelize');
+/* jshint indent: 2 */
 
-module.exports = sequelize => {
-  const attributes = {
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('employees', {
     employeeNumber: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER(11),
       allowNull: false,
-      defaultValue: null,
-      primaryKey: true,
-      autoIncrement: false,
-      comment: null,
-      field: "employeeNumber"
+      primaryKey: true
     },
     lastName: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "lastName"
+      allowNull: false
     },
     firstName: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "firstName"
+      allowNull: false
     },
     extension: {
       type: DataTypes.STRING(10),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "extension"
+      allowNull: false
     },
     email: {
       type: DataTypes.STRING(100),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "email"
+      allowNull: false
     },
     officeCode: {
       type: DataTypes.STRING(10),
       allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "officeCode",
       references: {
-        key: "officeCode",
-        model: "offices_model"
-      }
+        model: 'offices',
+        key: 'officeCode'
+      },
+      unique: "employees_ibfk_2"
     },
     reportsTo: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER(11),
       allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "reportsTo",
       references: {
-        key: "employeeNumber",
-        model: "employees_model"
-      }
+        model: 'employees',
+        key: 'employeeNumber'
+      },
+      unique: "employees_ibfk_1"
     },
     jobTitle: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "jobTitle"
+      allowNull: false
     }
-  };
-  const options = {
-    tableName: "employees",
-    comment: "",
-    indexes: [{
-      name: "reportsTo",
-      unique: false,
-      type: "BTREE",
-      fields: ["reportsTo"]
-    }, {
-      name: "officeCode",
-      unique: false,
-      type: "BTREE",
-      fields: ["officeCode"]
-    }]
-  };
-  const EmployeesModel = sequelize.define("employees_model", attributes, options);
-  return EmployeesModel;
+  }, {
+    sequelize,
+    tableName: 'employees',
+    timestamps: false,
+    indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "employeeNumber" },
+        ]
+      },
+      {
+        name: "reportsTo",
+        using: "BTREE",
+        fields: [
+          { name: "reportsTo" },
+        ]
+      },
+      {
+        name: "officeCode",
+        using: "BTREE",
+        fields: [
+          { name: "officeCode" },
+        ]
+      },
+    ]
+  });
 };

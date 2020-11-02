@@ -1,55 +1,44 @@
-const {
-  DataTypes
-} = require('sequelize');
+/* jshint indent: 2 */
 
-module.exports = sequelize => {
-  const attributes = {
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('payments', {
     customerNumber: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER(11),
       allowNull: false,
-      defaultValue: null,
       primaryKey: true,
-      autoIncrement: false,
-      comment: null,
-      field: "customerNumber",
       references: {
-        key: "customerNumber",
-        model: "customers_model"
+        model: 'customers',
+        key: 'customerNumber'
       }
     },
     checkNumber: {
       type: DataTypes.STRING(50),
       allowNull: false,
-      defaultValue: null,
-      primaryKey: true,
-      autoIncrement: false,
-      comment: null,
-      field: "checkNumber"
+      primaryKey: true
     },
     paymentDate: {
       type: DataTypes.DATEONLY,
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "paymentDate"
+      allowNull: false
     },
     amount: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "amount"
+      allowNull: false
     }
-  };
-  const options = {
-    tableName: "payments",
-    comment: "",
-    indexes: []
-  };
-  const PaymentsModel = sequelize.define("payments_model", attributes, options);
-  return PaymentsModel;
+  }, {
+    sequelize,
+    tableName: 'payments',
+    timestamps: false,
+    indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "customerNumber" },
+          { name: "checkNumber" },
+        ]
+      },
+    ]
+  });
 };

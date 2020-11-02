@@ -1,51 +1,38 @@
-const {
-  DataTypes
-} = require('sequelize');
+/* jshint indent: 2 */
 
-module.exports = sequelize => {
-  const attributes = {
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('productlines', {
     productLine: {
       type: DataTypes.STRING(50),
       allowNull: false,
-      defaultValue: null,
-      primaryKey: true,
-      autoIncrement: false,
-      comment: null,
-      field: "productLine"
+      primaryKey: true
     },
     textDescription: {
       type: DataTypes.STRING(4000),
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "textDescription"
+      allowNull: true
     },
     htmlDescription: {
       type: DataTypes.TEXT,
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "htmlDescription"
+      allowNull: true
     },
     image: {
-      type: mediumblob,
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "image"
+      type: "MEDIUMBLOB",
+      allowNull: true
     }
-  };
-  const options = {
-    tableName: "productlines",
-    comment: "",
-    indexes: []
-  };
-  const ProductlinesModel = sequelize.define("productlines_model", attributes, options);
-  return ProductlinesModel;
+  }, {
+    sequelize,
+    tableName: 'productlines',
+    timestamps: false,
+    indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "productLine" },
+        ]
+      },
+    ]
+  });
 };

@@ -1,87 +1,62 @@
-const {
-  DataTypes
-} = require('sequelize');
+/* jshint indent: 2 */
 
-module.exports = sequelize => {
-  const attributes = {
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('orders', {
     orderNumber: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER(11),
       allowNull: false,
-      defaultValue: null,
-      primaryKey: true,
-      autoIncrement: false,
-      comment: null,
-      field: "orderNumber"
+      primaryKey: true
     },
     orderDate: {
       type: DataTypes.DATEONLY,
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "orderDate"
+      allowNull: false
     },
     requiredDate: {
       type: DataTypes.DATEONLY,
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "requiredDate"
+      allowNull: false
     },
     shippedDate: {
       type: DataTypes.DATEONLY,
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "shippedDate"
+      allowNull: true
     },
     status: {
       type: DataTypes.STRING(15),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "status"
+      allowNull: false
     },
     comments: {
       type: DataTypes.TEXT,
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "comments"
+      allowNull: true
     },
     customerNumber: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER(11),
       allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "customerNumber",
       references: {
-        key: "customerNumber",
-        model: "customers_model"
-      }
+        model: 'customers',
+        key: 'customerNumber'
+      },
+      unique: "orders_ibfk_1"
     }
-  };
-  const options = {
-    tableName: "orders",
-    comment: "",
-    indexes: [{
-      name: "customerNumber",
-      unique: false,
-      type: "BTREE",
-      fields: ["customerNumber"]
-    }]
-  };
-  const OrdersModel = sequelize.define("orders_model", attributes, options);
-  return OrdersModel;
+  }, {
+    sequelize,
+    tableName: 'orders',
+    timestamps: false,
+    indexes: [
+      {
+        name: "PRIMARY",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "orderNumber" },
+        ]
+      },
+      {
+        name: "customerNumber",
+        using: "BTREE",
+        fields: [
+          { name: "customerNumber" },
+        ]
+      },
+    ]
+  });
 };

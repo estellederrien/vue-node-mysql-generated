@@ -20,6 +20,7 @@
         "nodemon": "^2.0.6",
         "quill": "^1.3.6",
         "sequelize": "^6.3.5",
+        "sequelize-auto": "^0.6.7",
         "shards-ui": "^2.1.0",
         "shards-vue": "^1.0.4",
         "system-commands": "^1.1.7",
