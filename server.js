@@ -4,7 +4,7 @@
 const config = require("./config.json");
 
 // ------------------------------
-// LOAD OFFICIAL NODE MODULES - CHARGEMENT DES MODULES NODES 
+// LOAD OFFICIAL NODE MODULES - CHARGEMENT DES MODULES NODES ...
 // -------------------------------
 const express = require("express");
 const cors = require("cors");
@@ -122,12 +122,11 @@ function mysql_connect() {
     sequelize
         .authenticate()
         .then(() => {
-            console.log('Connection has been established successfully.');
+            console.log('Connection to MYSQL by SEQUELIZE has been established successfully.');
         })
         .catch(err => {
             console.error('Unable to connect to the database:', err);
         });
-
 }
 
 /*

@@ -1,40 +1,42 @@
 {
-  "name": "shards-dashboard-lite-vue",
-  "version": "1.0.0",
-  "private": true,
-  "license": "MIT",
-  "scripts": {
-    "lint": "vue-cli-service lint",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
-  },
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "bootstrap": "^4.1.3",
-    "chart.js": "^2.7.2",
-    "cors": "^2.8.5",
-    "express-proxy-server": "^1.0.0",
-    "express-session": "^1.17.1",
-    "mysql2": "^2.2.5",
-    "quill": "^1.3.6",
-    "sequelize": "^6.3.5",
-    "shards-ui": "^2.1.0",
-    "shards-vue": "^1.0.4",
-    "system-commands": "^1.1.7",
-    "vue": "^2.5.17",
-    "vue-moment": "^4.1.0",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.5.1",
-    "vuex-persist": "^3.1.3",
-    "xmysql": "^0.5.1"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.1.0",
-    "@vue/cli-plugin-babel": "^3.0.3",
-    "@vue/cli-service": "^3.0.3",
-    "@vue/eslint-config-airbnb": "^3.0.3",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.1",
-    "vue-template-compiler": "^2.5.17"
-  }
+    "name": "shards-dashboard-lite-vue",
+    "version": "1.0.0",
+    "private": true,
+    "license": "MIT",
+    "scripts": {
+        "lint": "vue-cli-service lint",
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "start": "nodemon server.js -e ejs,js,css,html,jpg,png,scss"
+    },
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "bootstrap": "^4.1.3",
+        "chart.js": "^2.7.2",
+        "cors": "^2.8.5",
+        "express-proxy-server": "^1.0.0",
+        "express-session": "^1.17.1",
+        "mysql2": "^2.2.5",
+        "nodemon": "^2.0.6",
+        "quill": "^1.3.6",
+        "sequelize": "^6.3.5",
+        "shards-ui": "^2.1.0",
+        "shards-vue": "^1.0.4",
+        "system-commands": "^1.1.7",
+        "vue": "^2.5.17",
+        "vue-moment": "^4.1.0",
+        "vue-router": "^3.0.1",
+        "vuex": "^3.5.1",
+        "vuex-persist": "^3.1.3",
+        "xmysql": "^0.5.1"
+    },
+    "devDependencies": {
+        "@babel/preset-env": "^7.1.0",
+        "@vue/cli-plugin-babel": "^3.0.3",
+        "@vue/cli-service": "^3.0.3",
+        "@vue/eslint-config-airbnb": "^3.0.3",
+        "node-sass": "^4.9.0",
+        "sass-loader": "^7.0.1",
+        "vue-template-compiler": "^2.5.17"
+    }
 }
