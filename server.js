@@ -52,10 +52,10 @@ if (port == 80) {
 if (port == 80) {
     // LOCALHOST AND OPENODE 
     mysql_initialize();
-    mysql_crud_routes_generation();
+    // mysql_crud_routes_generation();
 } else {
     mysql_initialize();
-    mysql_crud_routes_generation();
+    // mysql_crud_routes_generation();
     // It's heroku, so we need this to hide credentials: 
     get_heroku_env_vars();
 }
@@ -172,7 +172,7 @@ async function mysql_crud_routes_generation() {
         // PROXY ALL API ROUTES QUERIES TO PORT 3000 TO USE WITH MYSQL ROUTES GENERATOR https://stackoverflow.com/questions/10435407/proxy-with-express-js
         // -------------------------------
     var proxy = require('express-proxy-server');
-    app.use('/xmysql/api', proxy('http://localhost:3000/api'));
+    app.use('xmysql/api', proxy('http://localhost:3000/api'));
 }
 /*
  * Create models if no exist
