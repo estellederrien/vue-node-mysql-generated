@@ -7,7 +7,7 @@ https://vue-node-mysql-generated.herokuapp.com/
 
 ## Description .
 This Full Stack starter will demo out and test the following Sequelize REST <b>generators</b>, and Mysql/Postgres/Sqlite Rest Queries <b>generators</b> .
- No need to write back end code in a relational env any more, using theses technologies.
+ No need to write back end code in a relational env any more, using theses technologies. The second good thing is that you might rebuild a front end app, using an existing old mysql db, really fast .
 
 <b>Sequelize:</b>
 - Restizr : https://www.npmjs.com/package/restizr
@@ -63,7 +63,7 @@ Mysql Database template :
 
 Le défi est d'ajouter un middleware, et une authentification JWT à ces services REST générés.
 Voyons si les développeurs sont 10 * plus rapides avec ces outils ... ?
-Grâce à ces générateurs , plus besoin d'écrire de code back end pour des bases relationelles, sauf dans les cas très spéciaux ( Reportings avancés, Data science, jointures complexes...), vérité ou légende ?
+Grâce à ces générateurs , plus besoin d'écrire de code back end pour des bases relationelles, sauf dans les cas très spéciaux ( Reportings avancés, Data science, jointures complexes...), vérité ou légende ? Le second bon point est qu'on peu réecrire une app sur une base mysql existante , plus vite.
 
 
 ## Description (German) .
