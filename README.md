@@ -13,6 +13,7 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
 - Restizr : https://www.npmjs.com/package/restizr
 - Sequelize-restful : https://github.com/sequelize/sequelize-restful
 - Sequelize Automate : https://www.npmjs.com/package/sequelize-automate
+- Sequelize Auto : https://github.com/sequelize/sequelize-auto/
 
 <b>Mysql:</b>
 - dbCrud : https://github.com/johnroers/dbCRUD
@@ -44,6 +45,7 @@ Sequelize:
 - Restizr: https://www.npmjs.com/package/restizr
 - Sequelize-reposful: https://github.com/sequelize/sequelize-restful
 - Sequelize Automate: https://www.npmjs.com/package/sequelize-automate
+- Sequelize Auto : https://github.com/sequelize/sequelize-auto/
 
 Mysql:
 - dbCrud: https://github.com/johnroers/dbCRUD
@@ -74,6 +76,7 @@ Fortsetzung:
 - Restizr: https://www.npmjs.com/package/restizr
 - Sequelize-restful: https://github.com/sequelize/sequelize-restful
 - Sequelize Automate: https://www.npmjs.com/package/sequelize-automate
+- Sequelize Auto : https://github.com/sequelize/sequelize-auto/
 
 MySQL:
 - dbCrud: https://github.com/johnroers/dbCRUD
@@ -99,6 +102,7 @@ Mal sehen, ob Entwickler mit diesen Tools 10 * schneller sind!
 -Restizr：https：//www.npmjs.com/package/restizr
 -Sequelize-restful：https://github.com/sequelize/sequelize-restful
 -Sequelize自动化：https://www.npmjs.com/package/sequelize-automate
+- Sequelize Auto : https://github.com/sequelize/sequelize-auto/
 
 MySQL的：
 -dbCrud：https://github.com/johnroers/dbCRUD
