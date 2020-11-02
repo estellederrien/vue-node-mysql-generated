@@ -13,13 +13,15 @@ const session = require("express-session");
 const bcrypt = require("bcryptjs");
 const fs = require("fs");
 const logStream = fs.createWriteStream(config.logs_path, { flags: "a" });
-const { Sequelize } = require("sequelize"); // Relational DBS
+const Sequelize = require("sequelize"); // Relational DBS
+// Require the sequelize-router middleware and any models to be used
+const sequelizeRouter = require('sequelize-router');
 const mysql = require("mysql2/promise");
 const system = require("system-commands");
 // -------------------------------
 // THIS IS AN EXPRESS APP
 // -------------------------------
-const app = express();
+var app = express();
 // -------------------------------
 // MANAGING SERVER PORT - GESTION DES PORTS
 // -------------------------------
@@ -46,10 +48,8 @@ if (port == 80) {
 // -------------------------------
 if (port == 80) {
     // LOCALHOST AND OPENODE
-
     // mysql_crud_routes_generation();
 } else {
-
     // It's heroku, so we need this to hide credentials:
     get_heroku_env_vars();
 }
@@ -97,7 +97,6 @@ app.use(
  * @return none
  * @error  none
  */
-
 const sequelize = new Sequelize(
     config.mysql.db_name,
     config.mysql.user,
@@ -124,47 +123,40 @@ sequelize
         console.error("Unable to connect to the database:", err);
     });
 
+// Demo Query
+/*  customers
+     .findAll()
+     .then(c => {
+         console.log(c);
+         console.log("********************");
+     })
+     .finally(() => {
+         sequelize.close();
+     }); */
 /*
- * Import Generated Sequelize data models. https://github.com/sequelize/sequelize-auto 
+ * Import Generated Sequelize data models. 
+ * https://github.com/sequelize/sequelize-auto // Example command : sequelize-auto -o "./models" -d sql7374024 -h sql7.freemysqlhosting.net -u sql7374024 -p x -x 932SrSVwjb -e mysql
  * @params none
  * @return none
  * @error  none
  */
 function import_models() {
-
-    // Theses models have been generated using https://github.com/sequelize/sequelize-auto 
-    // Example command : sequelize-auto -o "./models" -d sql7374024 -h sql7.freemysqlhosting.net -u sql7374024 -p x -x 932SrSVwjb -e mysql
     var initModels = require("./models/init-models").initModels;
     var models = initModels(sequelize);
-
-    // This will become a LOOP - ca va se ransformer en LOOP
-    var customers = models.customers;
-    var orders = models.orders;
-
-    // Demo Query
-    customers
-        .findAll()
-        .then(c => {
-            console.log(c);
-            console.log("********************");
-        })
-        .finally(() => {
-            sequelize.close();
-        });
+    generate_routes(models)
 }
-
-
 /*
  * Generate REST routes from Sequelize data models
  * @params none
  * @return none
  * @error  none
  */
-function generate_routes() {
-
-
+function generate_routes(models) {
+    // This will become a LOOP - ca va se transformer en LOOP
+    var customers = models.customers;
+    app.use('/api', sequelizeRouter(customers));
+    var orders = models.orders;
 }
-
 /*
  * Create db if no exist.
  * @params config.json
@@ -185,7 +177,7 @@ async function mysql_initialize() {
     mysql_connect();
     write_connexion_to_logs();
 }
-/*
+/* XMYSQL 
  * Create all Mysql DB Cruds and Routes  automatically from an existing database HIIK !! - See https://github.com/o1lab/xmysql
  * Crée toutes les routes ( Post, Put, Delete, Read) et cruds NODE EXPRESS automatiquement, à partir d'une database MYSQL existante !
  * No need to write generic back ends .
