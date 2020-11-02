@@ -1,5 +1,5 @@
-# My starter done only using Relational DBs and Express REST generators 
-
+# My starter done only using Relational DBs and Express REST generators , and one Axios generic crud
+# No need to write back end code in a relational env any more.
 ![ScreenShot](screenshot.png)
 
 ## Live testing :
