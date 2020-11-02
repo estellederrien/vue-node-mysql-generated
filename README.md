@@ -14,7 +14,8 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
 - Sequelize Automate : https://www.npmjs.com/package/sequelize-automate
 - Sequelize Auto : https://github.com/sequelize/sequelize-auto/
 - <b>2. Generate Routes from existing Models : </b>
-- Restizr : https://www.npmjs.com/package/restizr
+- sequelize-router : https://github.com/ceckenrode/sequelize-router
+- Restizr : https://www.npmjs.com/package/restizr ( Ko : app.configure() not supported any more )
 - Sequelize-restful : https://github.com/sequelize/sequelize-restful
 
 
