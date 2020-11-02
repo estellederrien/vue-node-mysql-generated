@@ -2,12 +2,9 @@ const webpack = require("webpack");
 module.exports = {
     devServer: { // Theses params only works when using developping vue.js on port localhost:8080 
         proxy: {
-            "/api": { // USING CLASSICAL SEQUELIZE GENERATED ROUTES
-                target: "http://localhost:80",
-            },
-            "/xmysql/api": { // USING XMYSQL GENERATED ROUTES
+
+            "/api": {
                 target: "http://localhost:3000",
-                pathRewrite: { '^/api': '/api' }
             }
         },
         hot: true,

@@ -137,7 +137,7 @@ function mysql_connect() {
  */
 async function mysql_initialize() {
     // create db if it doesn't already exist
-    const token = { "user": config.mysql.user, "password": config.mysql.password };
+    const token = { "user": config.mysql.user, "password": config.mysql.password, "host": config.mysql.host };
     const connection = await mysql.createConnection(token);
     await connection.query('CREATE DATABASE IF NOT EXISTS ' + config.mysql.name + ';');
     mysql_connect();
@@ -160,7 +160,7 @@ async function mysql_initialize() {
  * @error  none
  */
 async function mysql_crud_routes_generation() {
-    system('xmysql -h localhost -u root -p password -n 3000  -d ' + config.mysql.name).then(output => {
+    system('xmysql -h ' + config.mysql.host + ' -u ' + config.mysql.user + ' -p ' + config.mysql.password + ' -n 3000  -d ' + config.mysql.name).then(output => {
             console.log(output)
             write_connexion_to_logs()
         }).catch(error => {

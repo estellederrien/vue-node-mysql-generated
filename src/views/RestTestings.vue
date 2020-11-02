@@ -41,6 +41,7 @@
 
 <script>
 import GenericAxiosServices from '@/api-services/GenericAxiosServices';
+
 export default {
     data() {
         return {
