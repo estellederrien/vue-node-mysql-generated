@@ -123,16 +123,7 @@ sequelize
         console.error("Unable to connect to the database:", err);
     });
 
-// Demo Query
-/*  customers
-     .findAll()
-     .then(c => {
-         console.log(c);
-         console.log("********************");
-     })
-     .finally(() => {
-         sequelize.close();
-     }); */
+
 /*
  * Import Generated Sequelize data models. 
  * https://github.com/sequelize/sequelize-auto // Example command : sequelize-auto -o "./models" -d sql7374024 -h sql7.freemysqlhosting.net -u sql7374024 -p x -x 932SrSVwjb -e mysql
@@ -146,16 +137,22 @@ function import_models() {
     generate_routes(models)
 }
 /*
- * Generate REST routes from Sequelize data models
+ * Generate REST routes from Sequelize data models unsing sequelizeRouter
  * @params none
  * @return none
  * @error  none
  */
 function generate_routes(models) {
     // This will become a LOOP - ca va se transformer en LOOP
-    var customers = models.customers;
-    app.use('/api', sequelizeRouter(customers));
-    var orders = models.orders;
+    app.use('/api', sequelizeRouter(models.customers));
+    app.use('/api', sequelizeRouter(models.employees));
+    app.use('/api', sequelizeRouter(models.offices));
+    app.use('/api', sequelizeRouter(models.orderdetails));
+    app.use('/api', sequelizeRouter(models.orders));
+    app.use('/api', sequelizeRouter(models.payments));
+    app.use('/api', sequelizeRouter(models.productlines));
+    app.use('/api', sequelizeRouter(models.products));
+
 }
 /*
  * Create db if no exist.
@@ -176,6 +173,17 @@ async function mysql_initialize() {
     );
     mysql_connect();
     write_connexion_to_logs();
+
+    // Demo Query
+    /*  customers
+         .findAll()
+         .then(c => {
+             console.log(c);
+             console.log("********************");
+         })
+         .finally(() => {
+             sequelize.close();
+         }); */
 }
 /* XMYSQL 
  * Create all Mysql DB Cruds and Routes  automatically from an existing database HIIK !! - See https://github.com/o1lab/xmysql
