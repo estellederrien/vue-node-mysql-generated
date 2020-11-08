@@ -17,7 +17,7 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
   - 1. Find an old Mysql DB, with some ol' data .
   - 2. Generate all Mysql Db models in the models directory using the <a href="https://github.com/sequelize/sequelize-auto/">Sequelize Auto module CLI</a>.
   - 3. Fill  the generate_routes(models) function in <b>server.js </b> (Untill I do a loop , or do it yourself)
-  - Pops, that's all, you have all ur sequelize routes ready to get used, even with params :<b> no need to write back endcode no more, in a relational env , ah ah ah </b>! And you still can add a middleware with ease ( Demo comin soon)
+  - Pops, that's all, you have all ur sequelize routes ready to get used, even with params :<b> no need to write back endcode no more, in a relational env , ah ah ah </b>! And you still can add a middleware with ease ( Demo comin soon), Life is cool, now  ! Ah ah ah !
 
 ## Example :
 ```
@@ -84,7 +84,7 @@ Truth or legend ?
 - 1. Trouvez une ancienne base de données Mysql, avec quelques anciennes données.
 - 2. Générez tous les modèles Mysql Db dans le répertoire models à l'aide de l'interface de ligne de commande du module Sequelize Auto.
 - 3.Remplissez la fonction generate_routes (models) dans server.js (jusqu'à ce que je fasse une boucle, ou que je le fasse vous-même)
-    Pops, c'est tout, vous avez toutes vos routes de séquelles prêtes à être utilisées, même avec des paramètres: plus besoin de réécrire le code de fin, dans un environnement relationnel, ah ah ah! Et vous pouvez toujours ajouter un middleware en toute simplicité (démo bientôt disponible) pour empécher les gens non identifiés d'exécuter un CRUD .
+    Pops, c'est tout, vous avez toutes vos routes CRUD REST prêtes à être utilisées, même avec des paramètres: Plus besoin de réécrire des fichiers CRUDS, dans un environnement relationnel, ah ah ah, sauf pour les rqts difficiles ou data science! Et vous pouvez toujours ajouter un middleware en toute simplicité (démo bientôt disponible) pour empécher les gens non identifiés d'exécuter un CRUD .
 
 ## Description
 Ce starter teste les générateurs Sequelize REST et des générateurs Mysql Rest Queries suivants.
