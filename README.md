@@ -24,8 +24,7 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
         GenericAxiosServices.getAll("employees", {
             "id": 2
         }).then((response) => {
-            console.log(response.data);
-            this.employees = response.data
+            this.employees = response.data // You get only one row !
         }).catch((error) => {
             console.log(error.response.data);
         });
