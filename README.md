@@ -10,7 +10,7 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
  No need to write back end code in a relational env any more, using theses technologies. The second good thing is that you might rebuild a more modern front end app, using an existing ol' mysql db, really fast .
  
  ## Last depot news :
- - I won't use sequelize-router, and replace it by my own file generic_crud_mysql.js 
+ - I won't use sequelize-router, and replace it by my own file generic_crud_mysql.js , took from the sequelize-router base code and re-adapted
  - Remote Mysql is bad on the live demo, i have to choose another host cause it sleeps if I dont click a link, please wait
  
  ## How to ?
