@@ -8,6 +8,9 @@ https://vue-node-mysql-generated.herokuapp.com/
 ## Description .
 This Full Stack starter will demo out and test the following Sequelize REST <b>generators</b>, and Mysql/Postgres/Sqlite Rest Queries <b>generators</b> .
  No need to write back end code in a relational env any more, using theses technologies. The second good thing is that you might rebuild a more modern front end app, using an existing ol' mysql db, really fast .
+ 
+ ## Last depot news :
+ - Remote Mysql is bad, i have to choose another cause it sleeps if I dont click a link, please wait
 
 <b>Sequelize:</b>
 - <b>1. Generate Models from existing Mysql db : </b>
