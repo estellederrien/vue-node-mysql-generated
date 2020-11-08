@@ -77,7 +77,17 @@ Truth or legend ?
 ![ScreenShot](screenshot2.png)
 
 ## Description (French) .
-Ce starter fera la démonstration des générateurs Sequelize REST et des générateurs Mysql Rest Queries suivants.
+
+## Comment faire ?: 
+
+
+- 1. Trouvez une ancienne base de données Mysql, avec quelques anciennes données.
+- 2. Générez tous les modèles Mysql Db dans le répertoire models à l'aide de l'interface de ligne de commande du module Sequelize Auto.
+- 3.Remplissez la fonction generate_routes (models) dans server.js (jusqu'à ce que je fasse une boucle, ou que je le fasse vous-même)
+    Pops, c'est tout, vous avez toutes vos routes de séquelles prêtes à être utilisées, même avec des paramètres: plus besoin de réécrire le code de fin, dans un environnement relationnel, ah ah ah! Et vous pouvez toujours ajouter un middleware en toute simplicité (démo bientôt disponible) pour empécher les gens non identifiés d'exécuter un CRUD
+
+##DEscription
+Ce starter teste les générateurs Sequelize REST et des générateurs Mysql Rest Queries suivants.
 
 Sequelize:
 - Restizr: https://www.npmjs.com/package/restizr
