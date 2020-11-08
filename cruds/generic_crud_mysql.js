@@ -88,9 +88,9 @@ module.exports = (model) => {
 
     router.post('/', create);
     router.get('/', readMany);
-    router.get('/:_id', readOne);
-    router.put('/:_id', update);
-    router.delete('/:_id', remove);
+    router.get('/:id', readOne);
+    router.put('/:id', update);
+    router.delete('/:id', remove);
 
     return router;
 
