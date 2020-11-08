@@ -190,15 +190,13 @@ async function import_models() {
  * @return none
  * @error  none
  */
-function generate_routes(models) {
+async function generate_routes(models) {
 
-    Object.keys(models).forEach(function(key) {
-        console.log(key)
+    await Object.keys(models).forEach(function(key) {
         var my_model = eval("models." + key)
         app.use(
             "/api/" + key, require("./cruds/generic_crud_mysql.js")(express, sequelize, my_model, middleware)
         );
-
     })
 }
 
