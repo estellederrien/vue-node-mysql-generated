@@ -18,6 +18,20 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
   - 3. Fill  the generate_routes(models) function in server.js (Untill I do a loop , or do it yourself)
   - Pop, that's all, you have all ur sequelize routes ready to get used, even with params :<b> no need to write back endcode no more, in a relational env , ah ah ah </b>!
 
+## Example :
+```
+   // GET QUERY USING GENERIC CRUD AND PARAMS EXAMPLE -> No back end code is written at all !
+        GenericAxiosServices.getAll("employees", {
+            "id": 2
+        }).then((response) => {
+            console.log(response.data);
+            this.employees = response.data
+        }).catch((error) => {
+            console.log(error.response.data);
+        });
+ ```
+        
+ ## Tested modules :       
 <b>Sequelize:</b>
 - <b>1. Generate Models from existing Mysql db : </b>
 - Sequelize Automate : https://www.npmjs.com/package/sequelize-automate
