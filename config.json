@@ -7,6 +7,7 @@
         "api_secret": "x"
     },
     "logs_path": "tmp/logs/logs.txt",
-    "mysql": { "db_name": "sql7374024", "user": "sql7374024", "password": "932SrSVwjb", "dialect": "mysql", "host": "sql7.freemysqlhosting.net", "port": "3306" },
+    "mysq": { "db_name": "sql7374024", "user": "sql7374024", "password": "932SrSVwjb", "dialect": "mysql", "host": "sql7.freemysqlhosting.net", "port": "3306" },
+    "mysql": { "db_name": "classicmodels", "user": "root", "password": "password", "dialect": "mysql", "host": "localhost", "port": "3306" },
     "sqlite": { "storage": "db/database.sqlite" }
 }

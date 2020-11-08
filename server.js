@@ -15,8 +15,9 @@ const fs = require("fs");
 const logStream = fs.createWriteStream(config.logs_path, { flags: "a" });
 const Sequelize = require("sequelize"); // Relational DBS
 // Require the sequelize-router middleware and any models to be used
+const mysql = require("mysql");
 const sequelizeRouter = require('sequelize-router');
-const mysql = require("mysql2/promise");
+const promises_mysql = require("mysql2/promise");
 const system = require("system-commands");
 // -------------------------------
 // THIS IS AN EXPRESS APP
@@ -89,9 +90,13 @@ app.use(
 // LOAD PERSONAL MIDDLEWARE FUNCTIONS - On charge le MIDDLEWARE , un système de controle de permissions sur les web services
 // -------------------------------
 const middleware = require("./app_system/middleware.js");
+
+
 // -------------------------------
 // RELATIONAL DATABASES HANDLINGS (MYSQL,SQLITE)
 // -------------------------------
+
+
 // ------------------------------------
 // MYSQL PARAMS
 // -------------------------------
@@ -102,6 +107,7 @@ const token = {
     database: config.mysql.db_name,
 };
 const connection = mysql.createConnection(token);
+
 // ------------------------------------
 // SEQUELIZE PARAMS
 // -------------------------------
@@ -115,14 +121,16 @@ const sequelize = new Sequelize(config.mysql.db_name, config.mysql.user, config.
         idle: 10000,
     },
 });
+
+
 /*
  * Connection using mysql module
  * @params db
  * @return none
  * @error  none
  */
-async function mysql_connection(connection) {
-    await connection.connect(function(error) {
+function mysql_connection(connection) {
+    connection.connect(function(error) {
         if (!!error) {
             console.log(error);
         } else {
@@ -130,6 +138,8 @@ async function mysql_connection(connection) {
         }
     });
 }
+
+
 /*
  * Connection using sequelize module
  * @params db
@@ -146,6 +156,8 @@ async function mysql_sequelize_connection(sequelize) {
             console.error("Unable to connect to the database:", err);
         });
 }
+
+
 /*
  * Authentication using mysql module
  * @params db
@@ -155,6 +167,8 @@ async function mysql_sequelize_connection(sequelize) {
 async function load_auth(connection) {
     await require("./app_system/auth.js")(app, session, bcrypt, logStream, connection);
 }
+
+
 /*
  * Import Generated Sequelize data models.
  * https://github.com/sequelize/sequelize-auto // Example command
@@ -168,49 +182,31 @@ async function import_models() {
     var models = await initModels(sequelize);
     generate_routes(models);
 }
+
+
 /*
- * Generate REST routes from Sequelize data models
- * @params none
+ * Generate REST routes Using the generic mysql back end generic_crud_mysql.js
+ * @params models
  * @return none
  * @error  none
  */
 function generate_routes(models) {
 
-    // Using sequelizeRouter
-    /*     app.use('/api', sequelizeRouter(models.customers));
-        app.use('/api', sequelizeRouter(models.employees));
-        app.use('/api', sequelizeRouter(models.offices));
-        app.use('/api', sequelizeRouter(models.orderdetails));
-        app.use('/api', sequelizeRouter(models.orders));
-        app.use('/api', sequelizeRouter(models.payments));
-        app.use('/api', sequelizeRouter(models.productlines));
-        app.use('/api', sequelizeRouter(models.products)); */
+    Object.keys(models).forEach(function(key) {
+        console.log(key)
+        var my_model = eval("models." + key)
+        app.use(
+            "/api/" + key, require("./cruds/generic_crud_mysql.js")(express, sequelize, my_model, middleware)
+        );
 
-    // Using generic_crud_mysql.js INSTEAD of sequelizeRouter , Adding the middleware !
-    // A LOOP IS NEEDED SO EVERYTHING IS AUTOMATIC
-
-    app.use(
-        "/api/users",
-        require("./cruds/generic_crud_mysql.js")(express, sequelize, models.customers, middleware)
-    );
-    app.use(
-        "/api/notifications",
-        require("./cruds/generic_crud_mysql.js")(express, sequelize, models.employees, middleware)
-    );
-    app.use(
-        "/api/companies",
-        require("./cruds/generic_crud_mysql.js")(express, sequelize, models.offices, middleware)
-    );
-    app.use(
-        "/api/public_holiday_templates",
-        require("./cruds/generic_crud_mysql.js")(
-            sequelize,
-            models.public_holiday_templates,
-            middleware
-        )
-    );
-
+    })
 }
+
+
+
+// ------------------------------------
+// OTHERS API TESTINGS
+// -------------------------------
 /* XMYSQL 
  * Create all Mysql DB Cruds and Routes  automatically from an existing database HIIK !! - See https://github.com/o1lab/xmysql
  * Crée toutes les routes ( Post, Put, Delete, Read) et cruds NODE EXPRESS automatiquement, à partir d'une database MYSQL existante !
@@ -277,6 +273,8 @@ function connect_sqlite() {
 mysql_connection(connection);
 load_auth(connection);
 import_models();
+
+
 // -------------------------------
 // HELPER FUNCTIONS
 // -------------------------------
@@ -291,6 +289,8 @@ function write_connexion_to_logs() {
     logStream.write("DB CONNEXION AT " + d.toString() + "\r\n");
     // logStream.end(''); TODO
 }
+
+
 /*
  * HEROKU ENV VARS : NEEDED TO HIDE ALL CREDENTIALS IN A HEROKU / GITHUB ENV .
  * On récupère nos mots de passe des variables d'environnement stockés sur heroku, sinon, tout le monde verrait nos mots de passe .
@@ -301,6 +301,8 @@ function write_connexion_to_logs() {
 function get_heroku_env_vars() {
     config.cloudinary_token.api_secret = process.env.cloudinary_password;
 }
+
+
 // -------------------------------
 // STARTING NODE SERVER
 // -------------------------------
