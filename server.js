@@ -143,15 +143,19 @@ function import_models() {
  * @error  none
  */
 function generate_routes(models) {
-    // This will become a LOOP - ca va se transformer en LOOP
-    app.use('/api', sequelizeRouter(models.customers));
-    app.use('/api', sequelizeRouter(models.employees));
-    app.use('/api', sequelizeRouter(models.offices));
-    app.use('/api', sequelizeRouter(models.orderdetails));
-    app.use('/api', sequelizeRouter(models.orders));
-    app.use('/api', sequelizeRouter(models.payments));
-    app.use('/api', sequelizeRouter(models.productlines));
-    app.use('/api', sequelizeRouter(models.products));
+    // Using sequelizeRouter
+    /*     app.use('/api', sequelizeRouter(models.customers));
+        app.use('/api', sequelizeRouter(models.employees));
+        app.use('/api', sequelizeRouter(models.offices));
+        app.use('/api', sequelizeRouter(models.orderdetails));
+        app.use('/api', sequelizeRouter(models.orders));
+        app.use('/api', sequelizeRouter(models.payments));
+        app.use('/api', sequelizeRouter(models.productlines));
+        app.use('/api', sequelizeRouter(models.products)); */
+
+    // Using generic_crud_mysql.js INSTEAD of sequelizeRouter , Adding the middleware !
+    app.use('/api/users', require("./cruds/generic_crud_mysql.js")(sequelize, models.customers, middleware));
+
 
 }
 /*
