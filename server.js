@@ -85,64 +85,97 @@ app.use(
         strict: false
     })
 );
+// ------------------------------------
+// LOAD PERSONAL MIDDLEWARE FUNCTIONS - On charge le MIDDLEWARE , un système de controle de permissions sur les web services
+// -------------------------------
+const middleware = require("./app_system/middleware.js");
 // -------------------------------
 // RELATIONAL DATABASES HANDLINGS (MYSQL,SQLITE)
 // -------------------------------
+// ------------------------------------
+// MYSQL PARAMS
+// -------------------------------
+const token = {
+    user: config.mysql.user,
+    password: config.mysql.password,
+    host: config.mysql.host,
+    database: config.mysql.db_name,
+};
+const connection = mysql.createConnection(token);
+// ------------------------------------
+// SEQUELIZE PARAMS
+// -------------------------------
+const sequelize = new Sequelize(config.mysql.db_name, config.mysql.user, config.mysql.password, {
+    dialect: config.mysql.dialect,
+    host: config.mysql.host,
+    port: config.mysql.port,
+    pool: {
+        max: 5,
+        min: 0,
+        idle: 10000,
+    },
+});
 /*
- * Connect mysql using sequelize
-    Pool : max :Never have more than five open connections (max: 5)
-    min : At a minimum, have zero open connections/maintain no minimum number of connections (min: 0)
-    idle: Remove a connection from the pool after the connection has been idle (not been used) for 10 seconds (idle: 10000)
- * @params config.json
+ * Connection using mysql module
+ * @params db
  * @return none
  * @error  none
  */
-const sequelize = new Sequelize(
-    config.mysql.db_name,
-    config.mysql.user,
-    config.mysql.password, {
-        dialect: config.mysql.dialect,
-        host: config.mysql.host,
-        port: config.mysql.port,
-        pool: {
-            max: 5,
-            min: 0,
-            idle: 10000
+async function mysql_connection(connection) {
+    await connection.connect(function(error) {
+        if (!!error) {
+            console.log(error);
+        } else {
+            console.log("Connected!:)");
         }
-    }
-);
-sequelize
-    .authenticate()
-    .then(() => {
-        console.log(
-            "Connection to MYSQL by SEQUELIZE has been established successfully."
-        );
-        import_models();
-    })
-    .catch(err => {
-        console.error("Unable to connect to the database:", err);
     });
-
-
+}
 /*
- * Import Generated Sequelize data models. 
- * https://github.com/sequelize/sequelize-auto // Example command : sequelize-auto -o "./models" -d sql7374024 -h sql7.freemysqlhosting.net -u sql7374024 -p x -x 932SrSVwjb -e mysql
+ * Connection using sequelize module
+ * @params db
+ * @return none
+ * @error  none
+ */
+async function mysql_sequelize_connection(sequelize) {
+    await sequelize
+        .authenticate()
+        .then(() => {
+            console.log("Connection to MYSQL by SEQUELIZE has been established successfully.");
+        })
+        .catch((err) => {
+            console.error("Unable to connect to the database:", err);
+        });
+}
+/*
+ * Authentication using mysql module
+ * @params db
+ * @return none
+ * @error  none
+ */
+async function load_auth(connection) {
+    await require("./app_system/auth.js")(app, session, bcrypt, logStream, connection);
+}
+/*
+ * Import Generated Sequelize data models.
+ * https://github.com/sequelize/sequelize-auto // Example command
+ * sequelize-auto -o "./models" -d circle_time_kita21595270252 -h localhost -u root -p 3306 x -x password -e mysql
  * @params none
  * @return none
  * @error  none
  */
-function import_models() {
+async function import_models() {
     var initModels = require("./models/init-models").initModels;
-    var models = initModels(sequelize);
-    generate_routes(models)
+    var models = await initModels(sequelize);
+    generate_routes(models);
 }
 /*
- * Generate REST routes from Sequelize data models unsing sequelizeRouter
+ * Generate REST routes from Sequelize data models
  * @params none
  * @return none
  * @error  none
  */
 function generate_routes(models) {
+
     // Using sequelizeRouter
     /*     app.use('/api', sequelizeRouter(models.customers));
         app.use('/api', sequelizeRouter(models.employees));
@@ -154,40 +187,28 @@ function generate_routes(models) {
         app.use('/api', sequelizeRouter(models.products)); */
 
     // Using generic_crud_mysql.js INSTEAD of sequelizeRouter , Adding the middleware !
-    app.use('/api/users', require("./cruds/generic_crud_mysql.js")(sequelize, models.customers, middleware));
 
-
-}
-/*
- * Create db if no exist.
- * @params config.json
- * @return none
- * @error  none
- */
-async function mysql_initialize() {
-    // create db if it doesn't already exist
-    const token = {
-        user: config.mysql.user,
-        password: config.mysql.password,
-        host: config.mysql.host
-    };
-    const connection = await mysql.createConnection(token);
-    await connection.query(
-        "CREATE DATABASE IF NOT EXISTS " + config.mysql.name + ";"
+    app.use(
+        "/api/users",
+        require("./cruds/generic_crud_mysql.js")(express, sequelize, models.users, middleware)
     );
-    mysql_connect();
-    write_connexion_to_logs();
+    app.use(
+        "/api/notifications",
+        require("./cruds/generic_crud_mysql.js")(express, sequelize, models.notifications, middleware)
+    );
+    app.use(
+        "/api/companies",
+        require("./cruds/generic_crud_mysql.js")(express, sequelize, models.companies, middleware)
+    );
+    app.use(
+        "/api/public_holiday_templates",
+        require("./cruds/generic_crud_mysql.js")(
+            sequelize,
+            models.public_holiday_templates,
+            middleware
+        )
+    );
 
-    // Demo Query
-    /*  customers
-         .findAll()
-         .then(c => {
-             console.log(c);
-             console.log("********************");
-         })
-         .finally(() => {
-             sequelize.close();
-         }); */
 }
 /* XMYSQL 
  * Create all Mysql DB Cruds and Routes  automatically from an existing database HIIK !! - See https://github.com/o1lab/xmysql
@@ -228,18 +249,7 @@ async function mysql_crud_routes_generation() {
     var proxy = require("express-proxy-server");
     app.use("xmysql/api", proxy("http://localhost:3000/api"));
 }
-/*
- * Create models if no exist
- * @params none
- * @return none
- * @error  none
- */
-async function mysql_models() {
-    // init models and add them to the exported db object
-    // db.User = require('../users/user.model')(sequelize);
-    // sync all models with database
-    // await sequelize.sync();
-}
+
 /*
  * Connect sqlite using sequelize
  * @params db
@@ -249,17 +259,23 @@ async function mysql_models() {
 function connect_sqlite() {
     const sequelize = new Sequelize({
         dialect: "sqlite",
-        storage: "db/database.sqlite"
+        storage: "db/database.sqlite",
     });
     sequelize
         .authenticate()
         .then(() => {
             console.log("Connection to SQLITE has been established successfully.");
         })
-        .catch(err => {
+        .catch((err) => {
             console.error("Unable to connect to the database:", err);
         });
 }
+// -------------------------------
+// CALL FUNCTIONS
+// -------------------------------
+mysql_connection(connection);
+load_auth(connection);
+import_models();
 // -------------------------------
 // HELPER FUNCTIONS
 // -------------------------------
