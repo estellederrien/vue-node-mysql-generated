@@ -29,7 +29,8 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
 <b> My own generic front end vue.js axios REST </b>
 - GenericAxiosServices.js
 
-<b> 2 Back end generics REST CRUDS files , based on the sequelize-router code and another Githuber code: 
+<b> 2 Back end generics REST CRUDS files , based on the sequelize-router code and another Githuber code: </b>
+Theses files are really usefull when you need to build a great middleware back end , you have to override them . The middleware is for example needed to check wherever the  user is auth or not.
  - generic_crud_mongodb.js
  - generic_crud_mysql.js
 
@@ -74,7 +75,8 @@ Mysql Database template :
 <b> My propre fichier copyright me : generic vue.js front end axios REST </b>
 - GenericAxiosServices.js
 
-<b> 2 Back end generics REST CRUDS files , based on the sequelize-router code and another code: 
+<b> 2 Back end generics REST CRUDS files , based on the sequelize-router code and another code: </b>
+Ces 2 fichiers sont biens pour pouvoir ajouter un middlaware, qui peut controler le fait que l'utilisateur soit loggé par exemple avant de triggerer une route :
  - generic_crud_mongodb.js
  - generic_crud_mysql.js
 
