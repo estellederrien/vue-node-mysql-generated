@@ -81,8 +81,8 @@ Truth or legend ?
 
 
 - 1. Trouvez une ancienne base de données Mysql, avec quelques anciennes données.
-- 2. Générez tous les modèles Mysql Db dans le répertoire models à l'aide de l'interface de ligne de commande du module Sequelize Auto.
-    Pops, c'est tout, exécutez NPM START , et vous avez toutes vos routes CRUD REST prêtes à être utilisées, même avec des paramètres: Plus besoin de réécrire des fichiers CRUDS, dans un environnement relationnel, ah ah ah, sauf pour les rqts difficiles ou data science! Et vous pouvez toujours ajouter un middleware en toute simplicité (démo bientôt disponible) pour empécher les gens non identifiés d'exécuter un CRUD .
+- 2. Générez tous les modèles Mysql Db dans le répertoire models à l'aide de l'interface de ligne de commande du module Sequelize Auto.<br>
+   Et Pops, c'est tout ! Exécutez l'app avec NPM START , et vous avez toutes vos routes CRUD REST sequelize prêtes à être utilisées, même avec des paramètres WHERE !: Plus besoin de réécrire des fichiers CRUDS, dans un environnement relationnel, ah ah ah, sauf pour les rqts difficiles ou data science! Et vous pouvez toujours ajouter un middleware avancé en toute simplicité (démo bientôt disponible) pour empécher les gens non identifiés d'exécuter un web service REST CRUD .
 
 ## Description
 Ce starter teste les générateurs Sequelize REST et des générateurs Mysql Rest Queries suivants.
