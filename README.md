@@ -13,10 +13,10 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
  - Remote Mysql is bad, i have to choose another cause it sleeps if I dont click a link, please wait
  
  ## How to ?
-  - 1. Find a old Mysql DB, with some ol' data .
-  - 2. Generate all Mysql Db models in the models directory using Sequelize Auto 
-  - 3. Fill  generate_routes(models)  (Untill I do a loop or do it yourself)
-  - Pop, that's all, you have all ur sequelize routes ready to get used, no need to write back endcode no more, in a relational env !
+  - 1. Find an old Mysql DB, with some ol' data .
+  - 2. Generate all Mysql Db models in the models directory using the Sequelize Auto module.
+  - 3. Fill  the generate_routes(models) function in server.js (Untill I do a loop , or do it yourself)
+  - Pop, that's all, you have all ur sequelize routes ready to get used, even with params :<b> no need to write back endcode no more, in a relational env , ah ah ah <b/>!
 
 <b>Sequelize:</b>
 - <b>1. Generate Models from existing Mysql db : </b>
