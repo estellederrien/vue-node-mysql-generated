@@ -26,8 +26,12 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
 - <b>Generate Models and Routes from an existing Mysql, as a Standalone server( Eventually no Middleware support) </b>: 
 - xMysql : https://github.com/o1lab/xmysql ( Demo can't work on Heroku du to heroku ports limitation, it has to be installed on a second node.js server)
 
-<b> My own generic vue.js axios REST </b>
+<b> My own generic front end vue.js axios REST </b>
 - GenericAxiosServices.js
+
+<b> 2 Back end generics REST CRUDS files , based on the sequelize-router code and another Githuber code: 
+ - generic_crud_mongodb.js
+ - generic_crud_mysql.js
 
 
 The app will use the following templates : 
@@ -67,8 +71,12 @@ Mysql Database template :
 - https://www.mysqltutorial.org/mysql-sample-database.aspx/ (Small for online demo)
 - https://github.com/datacharmer/test_db (Big 168mo for localhost testings)
 
-<b> My own generic vue.js axios REST </b>
+<b> My propre fichier copyright me : generic vue.js front end axios REST </b>
 - GenericAxiosServices.js
+
+<b> 2 Back end generics REST CRUDS files , based on the sequelize-router code and another code: 
+ - generic_crud_mongodb.js
+ - generic_crud_mysql.js
 
 Le défi est d'ajouter un middleware, et une authentification JWT à ces services REST générés.
 Voyons si les développeurs sont 10 * plus rapides avec ces outils ... ?
