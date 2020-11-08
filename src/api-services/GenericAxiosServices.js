@@ -5,11 +5,13 @@ import Axios from 'axios';
 const pre = "/api/";
 
 export default {
-    getAll(collection) {
-        return Axios.get(pre + collection);
+    getAll(collection, data) {
+        return Axios.get(pre + collection, {
+            params: data
+        });
     },
     get(collection, id) {
-        return Axios.get(pre + collection + "/" + id);
+        return Axios.get(pre + collection + "/:" + id);
     },
     create(collection, data) {
         return Axios.post(pre + collection, data);
@@ -20,4 +22,5 @@ export default {
     delete(collection, id) {
         return Axios.delete(pre + collection + "/" + id);
     }
+
 };

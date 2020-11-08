@@ -1,8 +1,4 @@
-//crud.js https://medium.com/@bvodola/crud-routes-generator-with-node-express-js-mongoose-30a16538e16a
-
-const express = require('express');
-
-module.exports = (model) => {
+module.exports = (express, sequelize, model, middleware) => {
 
     // ======
     // Create
@@ -91,6 +87,7 @@ module.exports = (model) => {
     router.get('/:id', readOne);
     router.put('/:id', update);
     router.delete('/:id', remove);
+
 
     return router;
 
