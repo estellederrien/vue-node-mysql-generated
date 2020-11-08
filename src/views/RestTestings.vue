@@ -45,7 +45,8 @@ import GenericAxiosServices from '@/api-services/GenericAxiosServices';
 export default {
     data() {
         return {
-            customers: []
+            customers: [],
+            employees:[]
         };
     },
     methods: {},
@@ -57,6 +58,17 @@ export default {
         }).catch((error) => {
             console.log(error.response.data);
         });
+
+        // GET QUERY USING GENERIC CRUD AND PARAMS EXAMPLE
+        GenericAxiosServices.getAll("employees", {
+            "id": 2
+        }).then((response) => {
+            console.log(response.data);
+            this.employees = response.data
+        }).catch((error) => {
+            console.log(error.response.data);
+        });
+
     }
 };
 </script>

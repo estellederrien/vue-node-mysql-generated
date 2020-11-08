@@ -187,18 +187,19 @@ function generate_routes(models) {
         app.use('/api', sequelizeRouter(models.products)); */
 
     // Using generic_crud_mysql.js INSTEAD of sequelizeRouter , Adding the middleware !
+    // A LOOP IS NEEDED SO EVERYTHING IS AUTOMATIC
 
     app.use(
         "/api/users",
-        require("./cruds/generic_crud_mysql.js")(express, sequelize, models.users, middleware)
+        require("./cruds/generic_crud_mysql.js")(express, sequelize, models.customers, middleware)
     );
     app.use(
         "/api/notifications",
-        require("./cruds/generic_crud_mysql.js")(express, sequelize, models.notifications, middleware)
+        require("./cruds/generic_crud_mysql.js")(express, sequelize, models.employees, middleware)
     );
     app.use(
         "/api/companies",
-        require("./cruds/generic_crud_mysql.js")(express, sequelize, models.companies, middleware)
+        require("./cruds/generic_crud_mysql.js")(express, sequelize, models.offices, middleware)
     );
     app.use(
         "/api/public_holiday_templates",
