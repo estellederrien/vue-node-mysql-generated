@@ -12,7 +12,7 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
  ## How to ?
   - 1. Find an old Mysql DB, with some gud ol' data ...
   - 2. Generate all Mysql Db models in the models directory in 2 seconds, using the <a href="https://github.com/sequelize/sequelize-auto/">Sequelize Auto module CLI</a>.
-  - Trigger NPM START and Pops, that's all, you have all ur sequelize routes ready to get used, even with WHERE params :<b> No need to write back end code no more, in a relational env , ah ah ah </b>! And you still can add a middleware with ease ( Demo comin soon), Life is cool, now  ! Ah ah ah !
+  - Trigger NPM START and Pops, that's all, you have all ur sequelize routes ready to get used, even with WHERE clauses params, and more :<b> No need to write back end code no more, in a relational env , ah ah ah </b>! And you still can add a middleware with ease ( Demo comin soon), Life is cool, now  ! Ah ah ah !
 
 ## Example :
 ```
