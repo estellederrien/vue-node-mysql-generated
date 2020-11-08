@@ -10,7 +10,8 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
  No need to write back end code in a relational env any more, using theses technologies. The second good thing is that you might rebuild a more modern front end app, using an existing ol' mysql db, really fast .
  
  ## Last depot news :
- - Remote Mysql is bad, i have to choose another cause it sleeps if I dont click a link, please wait
+ - I won't use sequelize-router, and replace it by my own file generic_crud_mysql.js 
+ - Remote Mysql is bad on the live demo, i have to choose another host cause it sleeps if I dont click a link, please wait
  
  ## How to ?
   - 1. Find an old Mysql DB, with some ol' data .
