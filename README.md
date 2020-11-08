@@ -15,9 +15,9 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
  
  ## How to ?
   - 1. Find an old Mysql DB, with some ol' data .
-  - 2. Generate all Mysql Db models in the models directory using the Sequelize Auto module.
-  - 3. Fill  the generate_routes(models) function in server.js (Untill I do a loop , or do it yourself)
-  - Pop, that's all, you have all ur sequelize routes ready to get used, even with params :<b> no need to write back endcode no more, in a relational env , ah ah ah </b>!
+  - 2. Generate all Mysql Db models in the models directory using the <a href="https://github.com/sequelize/sequelize-auto/">Sequelize Auto module CLI</a>.
+  - 3. Fill  the generate_routes(models) function in <b>server.js </b> (Untill I do a loop , or do it yourself)
+  - Pops, that's all, you have all ur sequelize routes ready to get used, even with params :<b> no need to write back endcode no more, in a relational env , ah ah ah </b>!
 
 ## Example :
 ```
