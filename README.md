@@ -1,4 +1,4 @@
-# My starter done only using Relational DBs and Express REST generators , and one Axios generic crud
+# My Vue+Node+Mysql starter, featuring 1 Sequelize mysql Models GENERATOR and only *1* GENERIC Crud Rest file, allowing 10* faster and reliables devs . 
 
 ![ScreenShot](screenshot.png)
 
