@@ -20,7 +20,7 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
 
 ## Example :
 ```
-   // GET QUERY USING GENERIC CRUD AND PARAMS EXAMPLE -> No back end code is written at all !
+   // VUE.JS GET QUERY USING GENERIC CRUD AND SOME PARAMS EXAMPLE -> No back end code is written at all and it works !
         GenericAxiosServices.getAll("employees", {
             "id": 2
         }).then((response) => {
