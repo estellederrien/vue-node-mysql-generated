@@ -1,4 +1,4 @@
-# My Vue+Node+Mysql starter, featuring 1 Sequelize mysql Models GENERATOR and only *1* GENERIC MYSQL Crud Rest file, allowing 10* faster and reliables devs . 
+# My Vue+Node+Mysql starter, featuring 1 Sequelize mysql Models GENERATOR and only *1* GENERIC MYSQL Crud Rest file, allowing 10* fasters and reliables devs . 
 
 ![ScreenShot](screenshot.png)
 
