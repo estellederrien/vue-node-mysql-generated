@@ -8,13 +8,9 @@ https://vue-node-mysql-generated.herokuapp.com/
 ## Description .
 This Full Stack starter will demo out and test the following Sequelize REST <b>generators</b>, and Mysql/Postgres/Sqlite Rest Queries <b>generators</b> .
  No need to write back end code in a relational env any more, using theses technologies. The second good thing is that you might rebuild a more modern front end app, using an existing ol' mysql db, really fast .
- 
- ## Last depot news :
- - I won't use sequelize-router, and replace it by my own file generic_crud_mysql.js , took from the sequelize-router base code and re-adapted
- - Remote Mysql is bad on the live demo, i have to choose another host cause it sleeps if I dont click a link, please wait
- 
+
  ## How to ?
-  - 1. Find an old Mysql DB, with some ol' data .
+  - 1. Find an old Mysql DB, with some gud ol' data ...
   - 2. Generate all Mysql Db models in the models directory using the <a href="https://github.com/sequelize/sequelize-auto/">Sequelize Auto module CLI</a>.
   - Trigger NPM START and Pops, that's all, you have all ur sequelize routes ready to get used, even with WHERE params :<b> No need to write back end code no more, in a relational env , ah ah ah </b>! And you still can add a middleware with ease ( Demo comin soon), Life is cool, now  ! Ah ah ah !
 
@@ -32,7 +28,11 @@ This Full Stack starter will demo out and test the following Sequelize REST <b>g
             console.log(error.response.data);
         });
  ```
-        
+   
+  ## Last depot news :
+ - I won't use sequelize-router, and replace it by my own file generic_crud_mysql.js , took from the sequelize-router base code and re-adapted
+ - Remote Mysql is bad on the live demo, i have to choose another host cause it sleeps if I dont click a link, please wait
+ 
  ## Tested modules :       
 <b>Sequelize:</b>
 - <b>1. Generate Models from existing Mysql db : </b>
