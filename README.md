@@ -6,8 +6,11 @@
 https://vue-node-mysql-generated.herokuapp.com/
 
 ## Description .
-This Full Stack starter uses sequelize Auto : https://github.com/sequelize/sequelize-auto/, and my generic Axios REST file GenericAxiosServices.js and my Mysql generic REST file : generic_crud_mongodb.js.
- No need to write back end code in a relational env any more, using theses technologies. The second good thing is that you might rebuild a more modern front end app, using an existing ol' mysql db, really fast .
+This Full Stack starter aims is to demo how to generate models from an existing Mysql db, and to use generics generated REST routes, allowing 10* fasters and more reliables devs .
+
+It uses the sequelize Auto module , and my generic Axios REST file GenericAxiosServices.js and my Mysql generic REST file : generic_crud_mongodb.js.
+
+No need to write back end code in a relational env any more, using theses technologies. The second good thing is that you might rebuild a more modern front end app, using an existing ol' mysql db, really fast .
 
  ## How to ?
   - 1. Find an old Mysql DB, with some gud ol' data ...
