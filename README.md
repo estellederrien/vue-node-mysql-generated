@@ -6,7 +6,7 @@
 https://vue-node-mysql-generated.herokuapp.com/
 
 ## Description .
-This Full Stack starter will demo out and test the following Sequelize REST <b>generators</b>, and my generic Axios REST file and Mysql REST file .
+This Full Stack starter uses sequelize Auto : https://github.com/sequelize/sequelize-auto/, and my generic Axios REST file GenericAxiosServices.js and my Mysql generic REST file : generic_crud_mongodb.js.
  No need to write back end code in a relational env any more, using theses technologies. The second good thing is that you might rebuild a more modern front end app, using an existing ol' mysql db, really fast .
 
  ## How to ?
@@ -85,7 +85,7 @@ Truth or legend ?
    Et Pops, c'est tout ! Exécutez l'app avec NPM START , et vous avez toutes vos routes CRUD REST sequelize prêtes à être utilisées, même avec des paramètres WHERE !: Plus besoin de réécrire des fichiers CRUDS, dans un environnement relationnel, ah ah ah, sauf pour les rqts difficiles ou data science! Et vous pouvez toujours ajouter un middleware avancé en toute simplicité (démo bientôt disponible) pour empécher les gens non identifiés d'exécuter un web service REST CRUD .
 
 ## Description
-Ce starter teste les générateurs Sequelize REST et des générateurs Mysql Rest Queries suivants.
+Ce starter teste sequelize Auto : https://github.com/sequelize/sequelize-auto/ et mes 2 fichiers CRUD REST génériques : GenericAxiosServices.js (AXIOS pour le front end) et generic_crud_mongodb.js (MYSQL pour le back end).
 
 Sequelize:
 - Restizr: https://www.npmjs.com/package/restizr
