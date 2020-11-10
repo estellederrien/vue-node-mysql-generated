@@ -1,14 +1,14 @@
 <template>
 <div>
-    <b-button v-b-modal="'my-modal'" @click="create()">Add</b-button><br><br>
-    <b-modal @ok="save()" id="my-modal" size="lg" title="Company" :scrollable="true">
+    <b-button v-b-modal="'my-modal-'+table_name" @click="create()">Add</b-button><br><br>
+    <b-modal @ok="save()" :id="'my-modal-'+table_name" size="lg" :title="table_name" :scrollable="true">
         <b-form-group label-cols="6" label-cols-lg="4" :label="value" label-for="input-default" v-for="(key,value) in table_content[0]">
             <b-form-input v-if="!disabled_inputs.includes(value)" placeholder="Enter value" v-model="row[value]"></b-form-input>
             <b-form-input v-if="disabled_inputs.includes(value)" disabled v-model="row[value]"></b-form-input>
         </b-form-group>
     </b-modal>
     <div class="tableFixHead">
-        <table class="table ">
+        <table class="table table-bordered table-hover" >
             <thead>
                 <tr>
                     <th v-for="(key,value,index) in table_content[0]">{{value}} </th>
