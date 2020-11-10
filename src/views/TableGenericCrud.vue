@@ -18,7 +18,7 @@
             <tr v-for="e in table_content">
                 <td v-for="(key,value,index) in e">{{key}} </td>
                 <td>
-                    <b-button class="float-left" v-b-modal.modal-1 @click="update(e)">
+                    <b-button class="float-left" v-b-modal="'my-modal-'+table_name" @click="update(e)">
                         <b-icon icon="pencil-square" aria-hidden="true"></b-icon>
                     </b-button>
                     <b-button class="float-right" @click="del(e.id)" variant="danger">
