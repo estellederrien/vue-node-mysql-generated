@@ -82,8 +82,7 @@ export default {
         },
         save() {
             if (this.update_mode) {
-                GenericAxiosServices.update(this.table_name, this.table_content.id, this.row).then((response) => {
-                    console.log(response.data);
+                GenericAxiosServices.update(this.table_name, this.row.id, this.row).then((response) => {
                     this.read()
                     this.$toast("Saved", {
                         timeout: 2000
