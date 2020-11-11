@@ -7,8 +7,6 @@
                 <h6 class="m-0">{{table_name}}</h6>
             </d-card-header>
             <d-card-body style="overflow:auto;max-width:100%;max-height:65vh;min-height:65vh ">
-
-                 <crudgenerictable :table_name="'offices'" :disabled_inputs='["id","created_at","deleted_at","updated_at"]'></crudgenerictable>
                 <b-button v-b-modal="'my-modal-'+table_name" @click="create()">Add</b-button><br><br>
                 <b-modal @ok="save()" :id="'my-modal-'+table_name" size="lg" :title="table_name" :scrollable="true">
                     <b-form-group label-cols="6" label-cols-lg="4" :label="value" label-for="input-default" v-for="(key,value) in table_content[0]">
@@ -37,7 +35,6 @@
                         </tr>
                     </table>
                 </div>
-                <!-- <smart-pagination :currentPage.sync="currentPage" :totalPages="totalPages" /> -->
             </d-card-body>
         </d-card>
     </d-col>
@@ -45,21 +42,17 @@
 </div>
 </div>
 </template>
-
 <script>
 import Vue from 'vue';
 import GenericAxiosServices from '@/api-services/GenericAxiosServices';
 // import SmartTable from "vuejs-smart-table";
 // Vue.use(SmartTable);
-
 export default {
     props: ['table_name', 'disabled_inputs'],
     data() {
         return {
-
             table_content: [],
             row: {},
-
         };
     },
     methods: {
@@ -128,12 +121,10 @@ export default {
     }
 };
 </script>
-
 <style>
 .my-grid-class {
     height: 400px;
 }
-
 .vt-sort:before {
     font-family: FontAwesome;
     padding-right: 0.5em;
@@ -141,44 +132,35 @@ export default {
     display: inline-block;
     text-align: center;
 }
-
 .vt-sortable:before {
     content: "\f0dc";
 }
-
 .vt-asc:before {
     content: "\f160";
 }
-
 .vt-desc:before {
     content: "\f161";
 }
-
 .tableFixHead {
     overflow-y: auto;
     height: 80%;
 }
-
 .tableFixHead thead th {
     position: sticky;
     top: 0;
 }
-
 /* Just common table stuff. Really. */
 table {
     border-collapse: collapse;
     width: 100%;
 }
-
 th,
 td {
     padding: 8px 16px;
 }
-
 th {
     background: #eee;
 }
-
 .modal-body {
     padding: 1.875rem 2.1875rem;
     background-color: #f4f4f4;
