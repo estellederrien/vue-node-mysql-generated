@@ -21,7 +21,7 @@ function initModels(sequelize) {
 
     // ADDING JOINTURES MANUALLY!
     employees.belongsTo(offices, { foreignKey: 'officeCode' });
-    // sequelize.sync({ force: true })
+
 
     return {
         orders,

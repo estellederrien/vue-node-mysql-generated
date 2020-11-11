@@ -1,10 +1,11 @@
-// -------------------------------
+// -----------------------------------------------------------------------------------------------------------------------
 // LOAD APP CONFIG ( FTP TOKEN,CLOUDINARY TOKEN,MYSQL TOKEN, etc ...)- ON CHARGE LA CONFIGURATION DE L'APP
-// -------------------------------
+// -----------------------------------------------------------------------------------------------------------------------
 const config = require("./config.json");
-// ------------------------------
+
+// -----------------------------------------------------------------------------------------------------------------------
 // LOAD OFFICIAL NODE MODULES - CHARGEMENT DES MODULES NODES ...
-// -------------------------------
+// -----------------------------------------------------------------------------------------------------------------------
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
@@ -19,17 +20,20 @@ const mysql = require("mysql");
 const sequelizeRouter = require('sequelize-router');
 const promises_mysql = require("mysql2/promise");
 const system = require("system-commands");
-// -------------------------------
+
+// -----------------------------------------------------------------------------------------------------------------------
 // THIS IS AN EXPRESS APP
-// -------------------------------
+// -----------------------------------------------------------------------------------------------------------------------
 var app = express();
+
 // -------------------------------
 // MANAGING SERVER PORT - GESTION DES PORTS
 // -------------------------------
 const port = process.env.PORT || 80;
-// -------------------------------
+
+// -----------------------------------------------------------------------------------------------------------------------
 // CORS - GESTION DE LA PROTECTION CORS
-// -------------------------------
+// -----------------------------------------------------------------------------------------------------------------------
 if (port == 80) {
     // LOCALHOST AND OPENODE
     app.use(
@@ -44,9 +48,9 @@ if (port == 80) {
     // AZURE AND HEROKU
     app.use(cors());
 }
-// -------------------------------
+// -----------------------------------------------------------------------------------------------------------------------
 // OTHER RELATED PORTS FUNCTIONS  (CONNEXION TO OTHERS DATABASE IF LOCALHOST)
-// -------------------------------
+// -----------------------------------------------------------------------------------------------------------------------
 if (port == 80) {
     // LOCALHOST AND OPENODE
     // mysql_crud_routes_generation();
@@ -54,22 +58,25 @@ if (port == 80) {
     // It's heroku, so we need this to hide credentials:
     get_heroku_env_vars();
 }
-// -------------------------------
+
+// -----------------------------------------------------------------------------------------------------------------------
 // USING SESSIONS - UTILISATION DES SESSIONS
-// -------------------------------
+// -----------------------------------------------------------------------------------------------------------------------
 app.use(session({ secret: "ssshhhhh", saveUninitialized: true, resave: true }));
-// -------------------------------
+
+// -----------------------------------------------------------------------------------------------------------------------
 // MANAGING FILES AND STATICS DIRECTORIES
-// -------------------------------
+// -----------------------------------------------------------------------------------------------------------------------
 // VUE APP DIRECTORY ( GENERATED WITH NPM RUN BUILD ) // SERVING THE VUE.JS APP
 app.use(serveStatic(__dirname + "/dist"));
 // UPLOADS : IMAGES STORING DIRECTORY
 app.use(express.static(__dirname + "/tmp"));
 // UPLOADS : FILES STORING DIRECTORY
 app.use(express.static(__dirname + "/tmp/files"));
-// -------------------------------
+
+// -----------------------------------------------------------------------------------------------------------------------
 // MANAGING JSON AND BODY PARSER PARAMS
-// -------------------------------
+// -----------------------------------------------------------------------------------------------------------------------
 const bodyParser = require("body-parser");
 app.use(
     bodyParser.urlencoded({
@@ -224,9 +231,10 @@ function jointure_query_test_from_server(models) {
 
     models.employees.findAll({
         include: [{
-            model: models.offices,
+            model: models.offices, // Joigning office table, thank to  employees.belongsTo(offices, { foreignKey: 'officeCode' }); in init-models.js
             required: true
-        }]
+        }],
+        where: { id: 2 } // Getting employee who has id number 2
     }).then(employees => {
         console.log(JSON.stringify(employees)) // JOINTURES ON OFFICES IS WORKING AND WE CAN SEE WHICH OFFICE DETAIL HE BELONGS TO
     });
