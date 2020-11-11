@@ -193,6 +193,7 @@ async function import_models() {
     var initModels = require("./models/init-models").initModels;
     var models = await initModels(sequelize);
     generate_routes(models);
+    jointure_query_test_from_server(models);
 }
 
 
@@ -210,6 +211,28 @@ async function generate_routes(models) {
             "/api/" + key, require("./cruds/generic_crud_mysql.js")(express, sequelize, my_model, middleware)
         );
     })
+
+
+}
+
+
+/*
+ * Testing sequelize jointures from the server
+ * @params models
+ * @return none
+ * @error  none
+ */
+function jointure_query_test_from_server(models) {
+
+    models.employees.findAll({
+        include: [{
+            model: models.offices,
+            required: true
+        }]
+    }).then(employees => {
+        console.log(JSON.stringify(employees)) // JOINTURES ON OFFICES IS WORKING AND WE CAN SEE WHICH OFFICE DETAIL HE BELONGS TO
+    });
+
 }
 
 

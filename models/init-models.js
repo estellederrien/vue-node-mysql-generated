@@ -9,24 +9,29 @@ var _payments = require("./payments");
 var _employees = require("./employees");
 
 function initModels(sequelize) {
-  var orders = _orders(sequelize, DataTypes);
-  var offices = _offices(sequelize, DataTypes);
-  var productlines = _productlines(sequelize, DataTypes);
-  var orderdetails = _orderdetails(sequelize, DataTypes);
-  var customers = _customers(sequelize, DataTypes);
-  var products = _products(sequelize, DataTypes);
-  var payments = _payments(sequelize, DataTypes);
-  var employees = _employees(sequelize, DataTypes);
+    var orders = _orders(sequelize, DataTypes);
+    var offices = _offices(sequelize, DataTypes);
+    var productlines = _productlines(sequelize, DataTypes);
+    var orderdetails = _orderdetails(sequelize, DataTypes);
+    var customers = _customers(sequelize, DataTypes);
+    var products = _products(sequelize, DataTypes);
+    var payments = _payments(sequelize, DataTypes);
+    var employees = _employees(sequelize, DataTypes);
 
-  return {
-    orders,
-    offices,
-    productlines,
-    orderdetails,
-    customers,
-    products,
-    payments,
-    employees,
-  };
+
+    // ADDING JOINTURES MANUALLY!
+    employees.belongsTo(offices, { foreignKey: 'officeCode' });
+    // sequelize.sync({ force: true })
+
+    return {
+        orders,
+        offices,
+        productlines,
+        orderdetails,
+        customers,
+        products,
+        payments,
+        employees,
+    };
 }
 module.exports = { initModels };
