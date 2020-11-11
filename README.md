@@ -38,7 +38,22 @@ No need to write back end code in a relational env any more, using theses techno
         });
  ```
    
-
+```
+   // VUE.JS GET QUERY USING WHERE CLAUSE AND A JOINTURE !
+        
+        GenericAxiosServices.getAll("employees", {
+            "params": {
+                "id": 2
+            },
+            "include": {
+                "name": "offices"
+            }
+        }).then((response) => {
+            this.employees = response.data;
+        }).catch((error) => {
+            console.log(error.response.data);
+        });
+ ```
  
  ## Tested modules :       
 <b>Sequelize:</b>
