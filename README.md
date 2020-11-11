@@ -6,16 +6,16 @@
 https://vue-node-mysql-generated.herokuapp.com/
 
 ## Description .
-This Full Stack starter aims is to demo how to generate models from an existing Mysql db, and to use generics generated REST routes, allowing 10* fasters and more reliables devs .
+This Full Stack starter aims is to demo how to generate models from an existing Mysql db, and to use generics generated REST routes, allowing 5* fasters and more reliables devs .
 
-It uses the sequelize Auto module , and my generic Axios REST front end service <b>GenericAxiosServices.js</b> and my Mysql generic REST back end file : <b>generic_crud_mysql.js</b>, took from the sequelize-router base code and re-factored.
+It uses the sequelize Auto module ,  and my Mysql generic REST back end file : <b>generic_crud_mysql.js</b>, took from the sequelize-router base code and re-factored.
 
 No need to write back end code in a relational env any more, using theses technologies. The second good thing is that you might rebuild a more modern front end app, using an existing ol' mysql db, really fast .
 
  ## How to ?
   - 1. Find an old Mysql DB, with some gud ol' data ...
   - 2. Generate all Mysql Db models in the models directory in 2 seconds, using the <a href="https://github.com/sequelize/sequelize-auto/">Sequelize Auto module CLI</a>.
-  - Trigger NPM START and Pops, that's all, you have all ur sequelize REST CRUD routes ready to get used, even with WHERE clauses params, joints and more :<b> No need to write back end code no more, in a relational env , ah ah ah </b>! And you still can add a middleware with ease ( Demo comin soon), Life is cool, now  ! Ah ah ah !
+  - Trigger NPM START and Pops, that's all, you have all ur sequelize REST CRUD routes ready to get used, even with WHERE clauses params, jointures and more :<b> No need to write back end code no more, in a relational env , ah ah ah </b>! And you still can add a middleware with ease ( Demo comin soon), Life is cool, now  ! Ah ah ah !
   ## Latest depot news :
   - The depo is now demoing sequelize jointures . Look at the heroku app for more . next step is probably to get rid of GenericAxiosServices.js, it is not even needed.
   - Switched to SQLITE database + Using my own CrudGenericTable.vue to generate HTML tables from SQL tables.
@@ -24,30 +24,21 @@ No need to write back end code in a relational env any more, using theses techno
  - Remote Mysql is bad on the live demo, i have to choose another host cause it sleeps if I dont click a link, please wait
  
 ## Example :
-```
-   // VUE.JS GET QUERY USING GENERIC CRUD AND SOME PARAMS EXAMPLE -> No Back end/Front end code is written at all and it works !
-        
-        import GenericAxiosServices from '@/api-services/GenericAxiosServices';
-        
-        GenericAxiosServices.getAll("employees", {
-            "id": 2
-        }).then((response) => {
-            this.employees = response.data // You get only one row !
-        }).catch((error) => {
-            console.log(error.response.data);
-        });
- ```
+
    
 ```
    // VUE.JS GET QUERY USING WHERE CLAUSE AND A JOINTURE !
    // Please add  employees.belongsTo(offices, { foreignKey: 'officeCode' }); in init-models.js
         
-        GenericAxiosServices.getAll("employees", {
+
+        axios.get("/api/employees", {
             "params": {
-                "id": 2
-            },
-            "include": {
-                "name": "offices"
+                "where": {
+                    "id": 2
+                },
+                "include": {
+                    "name": "offices"
+                }
             }
         }).then((response) => {
             this.employees = response.data;
@@ -73,9 +64,6 @@ No need to write back end code in a relational env any more, using theses techno
 
 - <b>Generate Models and Routes from an existing Mysql, as a Standalone server( Eventually no Middleware support) </b>: 
 - xMysql : https://github.com/o1lab/xmysql ( Demo can't work on Heroku du to heroku ports limitation, it has to be installed on a second node.js server)
-
-<b> My own generic front end vue.js axios REST </b>
-- GenericAxiosServices.js
 
 <b> 2 Back end generics REST CRUDS files , based on the sequelize-router code and another Githuber code: </b>
 Theses files are really usefull when you need to build a great middleware back end , you have to override them . The middleware is for example needed to check wherever the  user is auth or not.
@@ -110,7 +98,7 @@ Truth or legend ?
 ## Dernières infos :
  - Le dépot démontre désormais les jointures réalisées à l'aide de l'ORM sequelize . Cliquez sur la démo heroku pour en voir plus.
 ## Description
-Ce starter teste sequelize Auto : https://github.com/sequelize/sequelize-auto/ et mes 2 fichiers CRUD REST génériques : GenericAxiosServices.js (AXIOS pour le front end) et generic_crud_mysql.js (MYSQL pour le back end).
+Ce starter teste sequelize Auto : https://github.com/sequelize/sequelize-auto/ et generic_crud_mysql.js (MYSQL pour le back end).
 
 Sequelize:
 - Restizr: https://www.npmjs.com/package/restizr
@@ -130,9 +118,6 @@ Vue Template :
 Mysql Database template : 
 - https://www.mysqltutorial.org/mysql-sample-database.aspx/ (Small for online demo)
 - https://github.com/datacharmer/test_db (Big 168mo for localhost testings)
-
-<b> My propre fichier copyright me : generic vue.js front end axios REST </b>
-- GenericAxiosServices.js
 
 <b> 2 Back end generics REST CRUDS files , based on the sequelize-router code and another code: </b>
 Ces 2 fichiers sont biens pour pouvoir ajouter un middlaware, qui peut controler le fait que l'utilisateur soit loggé par exemple avant de triggerer une route :
@@ -184,8 +169,6 @@ MySQL的：
 -dbCrud：https://github.com/johnroers/dbCRUD
 -xMysql：https://github.com/o1lab/xmysql  ( Demo can't work on Heroku du to ports limitation)
 
-<b> My own generic vue.js axios REST </b>
-- GenericAxiosServices.js
 
 Template : 
 - https://github.com/DesignRevision/shards-dashboard-vue
