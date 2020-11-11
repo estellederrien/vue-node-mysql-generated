@@ -10,7 +10,7 @@
     <crudgenerictable :table_name="'offices'" :disabled_inputs='["id","created_at","deleted_at","updated_at"]'></crudgenerictable>
     <crudgenerictable :table_name="'customers'" :disabled_inputs='["id","created_at","deleted_at","updated_at"]'></crudgenerictable>
     <crudgenerictable :table_name="'employees'" :disabled_inputs='["id","created_at","deleted_at","updated_at"]'></crudgenerictable>
-    <crudgenerictable :table_name="'products'" :disabled_inputs='["id","created_at","deleted_at","updated_at"]'></crudgenerictable>
+    <!-- <crudgenerictable :table_name="'products'" :disabled_inputs='["id","created_at","deleted_at","updated_at"]'></crudgenerictable> -->
 </div>
 </template>
 

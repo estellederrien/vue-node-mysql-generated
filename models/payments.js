@@ -4,41 +4,24 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('payments', {
     customerNumber: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'customers',
-        key: 'customerNumber'
-      }
+      type: "",
+      allowNull: true
     },
     checkNumber: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
-      primaryKey: true
+      type: "",
+      allowNull: true
     },
     paymentDate: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
+      type: "",
+      allowNull: true
     },
     amount: {
-      type: DataTypes.DECIMAL,
-      allowNull: false
+      type: "",
+      allowNull: true
     }
   }, {
     sequelize,
     tableName: 'payments',
-    timestamps: false,
-    indexes: [
-      {
-        name: "PRIMARY",
-        unique: true,
-        using: "BTREE",
-        fields: [
-          { name: "customerNumber" },
-          { name: "checkNumber" },
-        ]
-      },
-    ]
+    timestamps: false
   });
 };

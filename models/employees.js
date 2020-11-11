@@ -4,47 +4,43 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('employees', {
     employeeNumber: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false,
-      primaryKey: true
+      type: "",
+      allowNull: true
     },
     lastName: {
-      type: DataTypes.STRING(50),
-      allowNull: false
+      type: "",
+      allowNull: true
     },
     firstName: {
-      type: DataTypes.STRING(50),
-      allowNull: false
+      type: "",
+      allowNull: true
     },
     extension: {
-      type: DataTypes.STRING(10),
-      allowNull: false
+      type: "",
+      allowNull: true
     },
     email: {
-      type: DataTypes.STRING(100),
-      allowNull: false
+      type: "",
+      allowNull: true
     },
     officeCode: {
-      type: DataTypes.STRING(10),
-      allowNull: false,
-      references: {
-        model: 'offices',
-        key: 'officeCode'
-      },
-      unique: "employees_ibfk_2"
+      type: "",
+      allowNull: true
     },
     reportsTo: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true,
-      references: {
-        model: 'employees',
-        key: 'employeeNumber'
-      },
-      unique: "employees_ibfk_1"
+      type: "",
+      allowNull: true
     },
     jobTitle: {
-      type: DataTypes.STRING(50),
-      allowNull: false
+      type: "",
+      allowNull: true
+    },
+    id: {
+      autoIncrement: true,
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      primaryKey: true,
+      unique: true
     }
   }, {
     sequelize,
@@ -52,25 +48,10 @@ module.exports = function(sequelize, DataTypes) {
     timestamps: false,
     indexes: [
       {
-        name: "PRIMARY",
+        name: "sqlite_autoindex_employees_1",
         unique: true,
-        using: "BTREE",
         fields: [
-          { name: "employeeNumber" },
-        ]
-      },
-      {
-        name: "reportsTo",
-        using: "BTREE",
-        fields: [
-          { name: "reportsTo" },
-        ]
-      },
-      {
-        name: "officeCode",
-        using: "BTREE",
-        fields: [
-          { name: "officeCode" },
+          { name: "id" },
         ]
       },
     ]

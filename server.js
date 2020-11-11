@@ -92,9 +92,9 @@ app.use(
 const middleware = require("./app_system/middleware.js");
 
 
-// -------------------------------
-// RELATIONAL DATABASES HANDLINGS (MYSQL,SQLITE)
-// -------------------------------
+// -----------------------------------------------------------------------------------------------------------------------
+//                                          RELATIONAL DATABASES  (MYSQL,SQLITE)
+// -----------------------------------------------------------------------------------------------------------------------
 
 
 // ------------------------------------
@@ -151,7 +151,7 @@ function mysql_connection() {
 
 /*
  * Connection using sequelize module
- * @params db
+ * @params sequelize
  * @return none
  * @error  none
  */
@@ -170,7 +170,7 @@ async function sequelize_connection(sequelize) {
 
 /*
  * Authentication using mysql module
- * @params db
+ * @params connection
  * @return none
  * @error  none
  */
@@ -181,8 +181,10 @@ async function load_auth(connection) {
 
 /*
  * Import Generated Sequelize data models.
- * https://github.com/sequelize/sequelize-auto // Example command
- * sequelize-auto -o "./models" -d circle_time_kita21595270252 -h localhost -u root -p 3306 x -x password -e mysql
+ * See : https://github.com/sequelize/sequelize-auto 
+ * // MYSQL Example command : sequelize-auto -o "./models" -d circle_time_kita21595270252 -h localhost -u root -p 3306 x -x password -e mysql
+ * // SQLITE COMMAND EXAMPLE :sequelize-auto -h localhost -u dontcare -d data.sqlite  --dialect sqlite
+ * https://stackoverflow.com/questions/33324887/sequelize-auto-for-sqlite
  * @params none
  * @return none
  * @error  none
@@ -208,24 +210,22 @@ async function generate_routes(models) {
             "/api/" + key, require("./cruds/generic_crud_mysql.js")(express, sequelize, my_model, middleware)
         );
     })
-
-
 }
 
 
 
 
-// -------------------------------
-// CALL FUNCTIONS
-// -------------------------------
+// -------------------------------------------------------------------------------------------------------------------------
+//                                              CALL FUNCTIONS
+// -------------------------------------------------------------------------------------------------------------------------
 
 sequelize_connection(sequelize);
 import_models();
 
 
-// ------------------------------------
-// OTHERS API TESTINGS
-// -------------------------------
+// -------------------------------------------------------------------------------------------------------------------------
+//                                              OTHERS API TESTINGS
+// -------------------------------------------------------------------------------------------------------------------------
 /* XMYSQL 
  * Create all Mysql DB Cruds and Routes  automatically from an existing database HIIK !! - See https://github.com/o1lab/xmysql
  * Crée toutes les routes ( Post, Put, Delete, Read) et cruds NODE EXPRESS automatiquement, à partir d'une database MYSQL existante !

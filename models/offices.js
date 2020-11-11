@@ -4,53 +4,51 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
     return sequelize.define('offices', {
         officeCode: {
-            type: DataTypes.STRING(10),
-            allowNull: false,
-            primaryKey: true
+            type: "",
+            allowNull: true
         },
         city: {
-            type: DataTypes.STRING(50),
-            allowNull: false
+            type: "",
+            allowNull: true
         },
         phone: {
-            type: DataTypes.STRING(50),
-            allowNull: false
+            type: "",
+            allowNull: true
         },
         addressLine1: {
-            type: DataTypes.STRING(50),
-            allowNull: false
+            type: "",
+            allowNull: true
         },
         addressLine2: {
-            type: DataTypes.STRING(50),
+            type: "",
             allowNull: true
         },
         state: {
-            type: DataTypes.STRING(50),
+            type: "",
             allowNull: true
         },
         country: {
-            type: DataTypes.STRING(50),
-            allowNull: false
+            type: "",
+            allowNull: true
         },
         postalCode: {
-            type: DataTypes.STRING(15),
-            allowNull: false
+            type: "",
+            allowNull: true
         },
         territory: {
-            type: DataTypes.STRING(10),
-            allowNull: false
+            type: "",
+            allowNull: true
+        },
+        id: {
+            autoIncrement: true,
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            primaryKey: true,
+            unique: true
         }
     }, {
         sequelize,
         tableName: 'offices',
-        timestamps: false,
-        indexes: [{
-            name: "PRIMARY",
-            unique: true,
-            using: "BTREE",
-            fields: [
-                { name: "officeCode" },
-            ]
-        }, ]
+        timestamps: false
     });
 };

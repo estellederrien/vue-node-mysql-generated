@@ -4,35 +4,24 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('productlines', {
     productLine: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
-      primaryKey: true
+      type: "",
+      allowNull: true
     },
     textDescription: {
-      type: DataTypes.STRING(4000),
+      type: "",
       allowNull: true
     },
     htmlDescription: {
-      type: DataTypes.TEXT,
+      type: "",
       allowNull: true
     },
     image: {
-      type: "MEDIUMBLOB",
+      type: "",
       allowNull: true
     }
   }, {
     sequelize,
     tableName: 'productlines',
-    timestamps: false,
-    indexes: [
-      {
-        name: "PRIMARY",
-        unique: true,
-        using: "BTREE",
-        fields: [
-          { name: "productLine" },
-        ]
-      },
-    ]
+    timestamps: false
   });
 };
