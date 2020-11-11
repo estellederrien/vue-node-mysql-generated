@@ -12,7 +12,7 @@
         <d-card class="card-small mb-4">
             <!-- Form Example -->
             <d-card-header class="border-bottom">
-                <h6 class="m-0">Jointure Employee + The office he belongs to . </h6>
+                <h6 class="m-0">Jointure On Employee 2 + The office he belongs to . </h6>
             </d-card-header>
             <d-card-body style="overflow:auto;max-width:100%;max-height:65vh;min-height:65vh ">
                 {{employees}}
@@ -42,7 +42,12 @@ export default {
     },
     created() {
         GenericAxiosServices.getAll("employees", {
-            "params":{"id": 2},"include":{"name":"offices"}
+            "params": {
+                "id": 2
+            },
+            "include": {
+                "name": "offices"
+            }
         }).then((response) => {
             this.employees = response.data;
         }).catch((error) => {
