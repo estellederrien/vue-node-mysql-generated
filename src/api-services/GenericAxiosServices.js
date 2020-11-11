@@ -7,7 +7,8 @@ const pre = "/api/";
 export default {
     getAll(collection, data) {
         return Axios.get(pre + collection, {
-            params: data
+            "params": data,
+            "include": data
         });
     },
     get(collection, id) {

@@ -8,7 +8,10 @@ import Errors from "./views/Errors.vue";
 import ComponentsOverview from "./views/ComponentsOverview.vue";
 import Tables from "./views/Tables.vue";
 import BlogPosts from "./views/BlogPosts.vue";
+
+// GUTHUB DEMO NICOLAS HULEUX
 import RestTestings from "./views/RestTestings.vue";
+import JointuresTestings from "./views/JointuresTestings.vue";
 
 Vue.use(Router);
 
@@ -67,6 +70,11 @@ export default new Router({
             path: "/rest-testings",
             name: "rest-testings",
             component: RestTestings
+        },
+        {
+            path: "/jointures-testings",
+            name: "jointures-testings",
+            component: JointuresTestings
         }
     ]
 });

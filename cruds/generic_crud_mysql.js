@@ -1,4 +1,4 @@
-module.exports = (express, sequelize, model, middleware) => {
+module.exports = (express, sequelize, model, middleware, models) => {
 
     // ======
     // Create
@@ -18,8 +18,19 @@ module.exports = (express, sequelize, model, middleware) => {
     // Read many
     // =========
     const readMany = (req, res) => {
+        // RECEIVING WHERE PARAMS
+        if (req.query.params) {
+
+            req.query.params = JSON.parse(req.query.params)
+        }
+        // RECEIVING JOINTURE NAME 
+        if (req.query.include) {
+            var myobj = JSON.parse(req.query.include);
+            var my_model = eval("models." + myobj.name)
+        }
         model.findAll({
-                where: req.query
+                where: req.query.params,
+                include: my_model
             })
             .then(function(dbModel) {
                 res.json(dbModel);

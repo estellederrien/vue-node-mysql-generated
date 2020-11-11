@@ -215,7 +215,7 @@ async function generate_routes(models) {
     await Object.keys(models).forEach(function(key) {
         var my_model = eval("models." + key)
         app.use(
-            "/api/" + key, require("./cruds/generic_crud_mysql.js")(express, sequelize, my_model, middleware)
+            "/api/" + key, require("./cruds/generic_crud_mysql.js")(express, sequelize, my_model, middleware, models)
         );
     })
 }
