@@ -91,6 +91,8 @@ Truth or legend ?
 - 2. Générez tous les modèles Mysql Db dans le répertoire models à l'aide de l'interface de ligne de commande du module Sequelize Auto.<br>
    Et Pops, c'est tout ! Exécutez l'app avec NPM START , et vous avez toutes vos routes CRUD REST sequelize prêtes à être utilisées, même avec des paramètres WHERE !: Plus besoin de réécrire des fichiers CRUDS, dans un environnement relationnel, ah ah ah, sauf pour les rqts difficiles ou data science! Et vous pouvez toujours ajouter un middleware avancé en toute simplicité (démo bientôt disponible) pour empécher les gens non identifiés d'exécuter un web service REST CRUD .
 
+## Dernières infos :
+ - Le dépot démontre désormais les jointures réalisées à l'aide de l'ORM sequelize . Cliquez sur la démo heroku pour en voir plus.
 ## Description
 Ce starter teste sequelize Auto : https://github.com/sequelize/sequelize-auto/ et mes 2 fichiers CRUD REST génériques : GenericAxiosServices.js (AXIOS pour le front end) et generic_crud_mysql.js (MYSQL pour le back end).
 
