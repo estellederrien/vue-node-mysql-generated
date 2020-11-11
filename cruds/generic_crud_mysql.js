@@ -19,8 +19,9 @@ module.exports = (express, sequelize, model, middleware, models) => {
     // =========
     const readMany = (req, res) => {
         // RECEIVING WHERE PARAMS
-        if (req.query.where) {
-            req.query.where = JSON.parse(req.query.where)
+        if (req.query.params) {
+
+            req.query.params = JSON.parse(req.query.params)
         }
         // RECEIVING JOINTURE NAME 
         if (req.query.include) {
@@ -28,7 +29,7 @@ module.exports = (express, sequelize, model, middleware, models) => {
             var my_model = eval("models." + myobj.name)
         }
         model.findAll({
-                where: req.query.where,
+                where: req.query.params,
                 include: my_model
             })
             .then(function(dbModel) {
@@ -97,7 +98,6 @@ module.exports = (express, sequelize, model, middleware, models) => {
     router.get('/:id', readOne);
     router.put('/:id', update);
     router.delete('/:id', remove);
-
 
 
     return router;

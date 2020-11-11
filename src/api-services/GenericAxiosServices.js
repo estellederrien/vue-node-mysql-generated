@@ -6,7 +6,6 @@ const pre = "/api/";
 
 export default {
     getAll(collection, data) {
-        console.log(data)
         return Axios.get(pre + collection, {
             "params": data,
             "include": data

@@ -42,11 +42,9 @@
 </div>
 </div>
 </template>
-
 <script>
 import Vue from 'vue';
 import GenericAxiosServices from '@/api-services/GenericAxiosServices';
-import axios from 'axios';
 // import SmartTable from "vuejs-smart-table";
 // Vue.use(SmartTable);
 export default {
@@ -63,7 +61,7 @@ export default {
             this.row = {};
         },
         read: function () {
-            axios.get("/api/" + this.table_name).then((response) => {
+            GenericAxiosServices.getAll(this.table_name).then((response) => {
                 this.table_content = response.data;
             }).catch((error) => {
                 console.log(error.response.data);
@@ -79,12 +77,14 @@ export default {
                 .then(value => {
                     this.boxOne = value;
                     if (value) {
-                        axios.delete("/api/" + this.table_name + "/" + id).then((response) => {
+                        GenericAxiosServices.delete(this.table_name, id).then((response) => {
                             this.$toast("Deleted", {
                                 timeout: 2000
                             });
                             this.read()
-                        })
+                        }).catch((error) => {
+                            console.log(error.response.data);
+                        });
                     }
                 })
                 .catch(err => {
@@ -93,17 +93,18 @@ export default {
         },
         save() {
             if (this.update_mode) {
-
-                axios.put("/api/" + this.table_name + "/" + this.row.id, this.row).then((response) => {
+                GenericAxiosServices.update(this.table_name, this.row.id, this.row).then((response) => {
+                    console.log(response.data);
+                    this.read()
                     this.$toast("Saved", {
                         timeout: 2000
                     });
-                    this.read()
                 }).catch((error) => {
                     console.log(error.response.data);
                 });
             } else {
-                axios.post("/api/" + this.table_name, this.row).then((response) => {
+                GenericAxiosServices.create(this.table_name, this.row).then((response) => {
+                    console.log(response.data);
                     this.$toast("Saved", {
                         timeout: 2000
                     });
@@ -120,12 +121,10 @@ export default {
     }
 };
 </script>
-
 <style>
 .my-grid-class {
     height: 400px;
 }
-
 .vt-sort:before {
     font-family: FontAwesome;
     padding-right: 0.5em;
@@ -133,44 +132,35 @@ export default {
     display: inline-block;
     text-align: center;
 }
-
 .vt-sortable:before {
     content: "\f0dc";
 }
-
 .vt-asc:before {
     content: "\f160";
 }
-
 .vt-desc:before {
     content: "\f161";
 }
-
 .tableFixHead {
     overflow-y: auto;
     height: 80%;
 }
-
 .tableFixHead thead th {
     position: sticky;
     top: 0;
 }
-
 /* Just common table stuff. Really. */
 table {
     border-collapse: collapse;
     width: 100%;
 }
-
 th,
 td {
     padding: 8px 16px;
 }
-
 th {
     background: #eee;
 }
-
 .modal-body {
     padding: 1.875rem 2.1875rem;
     background-color: #f4f4f4;
