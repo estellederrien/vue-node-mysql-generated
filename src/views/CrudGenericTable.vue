@@ -23,7 +23,7 @@
                             </tr>
                         </thead>
                         <tr v-for="e in table_content">
-                            <td v-for="(key,value,index) in e">{{key}} </td>
+                            <td v-for="(key,value,index) in e" v-if="!disabled_inputs.includes(key)" >{{key}} </td>
                             <td>
                                 <b-button class="float-left" v-b-modal="'my-modal-'+table_name" @click="update(e)">
                                     <b-icon icon="pencil-square" aria-hidden="true"></b-icon>
@@ -60,7 +60,7 @@ export default {
     methods: {
         create: function () {
             this.update_mode = false;
-            this.row = {};
+            this.row = Object.assign({},  this.row );
         },
         read: function () {
             axios.get("/api/" + this.table_name).then((response) => {
@@ -70,7 +70,7 @@ export default {
             });
         },
         update: function (e) {
-            this.row = e;
+            this.row = Object.assign({},  e );
             this.$bvModal.show("my-modal");
             this.update_mode = true;
         },
