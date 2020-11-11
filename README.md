@@ -40,6 +40,7 @@ No need to write back end code in a relational env any more, using theses techno
    
 ```
    // VUE.JS GET QUERY USING WHERE CLAUSE AND A JOINTURE !
+   // Please add  employees.belongsTo(offices, { foreignKey: 'officeCode' }); in init-models.js
         
         GenericAxiosServices.getAll("employees", {
             "params": {
