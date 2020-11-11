@@ -97,6 +97,30 @@ Truth or legend ?
 
 ## Dernières infos :
  - Le dépot démontre désormais les jointures réalisées à l'aide de l'ORM sequelize . Cliquez sur la démo heroku pour en voir plus.
+ 
+ ## Créer une jointure dans le front end sans utiliser SQL, ni coder de code BACK END , grâce à sequelize  :
+ ```
+   // ON EST DANS VUE.JS , ON A LA GROSSE FLEMME DECRIRE DU CODE BACK END OU DU SQL POUR FAIR UNE JOINTURE
+   // N'oubliez pas d'ajouter : employees.belongsTo(offices, { foreignKey: 'officeCode' }); dans le fichier init-models.js
+        
+
+        axios.get("/api/employees", {
+            "params": {
+                "where": {
+                    "id": 2
+                },
+                "include": {
+                    "name": "offices"
+                }
+            }
+        }).then((response) => {
+            this.employees = response.data;
+        }).catch((error) => {
+            console.log(error.response.data);
+        });
+ ```
+ 
+ 
 ## Description
 Ce starter teste sequelize Auto : https://github.com/sequelize/sequelize-auto/ et generic_crud_mysql.js (MYSQL pour le back end).
 
