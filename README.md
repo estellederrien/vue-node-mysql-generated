@@ -17,6 +17,7 @@ No need to write back end code in a relational env any more, using theses techno
   - 2. Generate all Mysql Db models in the models directory in 2 seconds, using the <a href="https://github.com/sequelize/sequelize-auto/">Sequelize Auto module CLI</a>.
   - Trigger NPM START and Pops, that's all, you have all ur sequelize REST CRUD routes ready to get used, even with WHERE clauses params, joints and more :<b> No need to write back end code no more, in a relational env , ah ah ah </b>! And you still can add a middleware with ease ( Demo comin soon), Life is cool, now  ! Ah ah ah !
   ## Last depot news :
+  - Switched to SQLITE database + Using my own CrudGenericTable.vue to generate HTML tables from SQL tables.
   - I will soon publish Joints exemples using Sequelize, Code is already ready also I will maybe even remove the axios generic crud, it is probably finally useless in this case. When Sequelize automatically adds foreign keys, I experiment few problems when the table already exists with data. generic_crud_mysql.js will be changed just a tiny few, to acccept jointures (readMany web service).
  - I won't use sequelize-router, and replace it by my own file generic_crud_mysql.js , took from the sequelize-router base code and re-adapted
  - Remote Mysql is bad on the live demo, i have to choose another host cause it sleeps if I dont click a link, please wait
