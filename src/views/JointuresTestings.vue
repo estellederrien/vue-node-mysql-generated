@@ -12,10 +12,22 @@
         <d-card class="card-small mb-4">
             <!-- Form Example -->
             <d-card-header class="border-bottom">
-                <h6 class="m-0">Jointure Employee + The office he belongs to . </h6>
+                <h6 class="m-0">Jointure On Employee 2 + The office he belongs to . </h6>
             </d-card-header>
-            <d-card-body style="overflow:auto;max-width:100%;max-height:65vh;min-height:65vh ">
+            <d-card-body>
                 {{employees}}
+            </d-card-body>
+        </d-card>
+    </d-col>
+
+    <d-col lg="12" class="mb-4">
+        <d-card class="card-small mb-4">
+            <!-- Form Example -->
+            <d-card-header class="border-bottom">
+                <h6 class="m-0">Jointure On Employee 4 + The office he belongs to . </h6>
+            </d-card-header>
+            <d-card-body>
+                {{employees2}}
             </d-card-body>
         </d-card>
     </d-col>
@@ -24,11 +36,12 @@
 
 <script>
 import GenericAxiosServices from '@/api-services/GenericAxiosServices';
-
+import axios from 'axios';
 export default {
     data() {
         return {
-            employees: []
+            employees: [],
+            employees2: []
         };
     },
     components: {
@@ -41,14 +54,48 @@ export default {
 
     },
     created() {
-        GenericAxiosServices.getAll("employees", {
-            "params":{"id": 2},"include":{"name":"offices"}
+        // JOINTURE EXAMPLE 1
+        axios.get("/api/employees", {
+            "params": {
+                "where": {
+                    "id": 2
+                },
+                "include": {
+                    "name": "offices"
+                }
+            }
         }).then((response) => {
             this.employees = response.data;
         }).catch((error) => {
             console.log(error.response.data);
         });
+
+        // JOINTURE EXAMPLE 2
+        axios.get("/api/employees", {
+            "params": {
+                "where": {
+                    "id": 4
+                },
+                "include": {
+                    "name": "offices"
+                }
+            }
+        }).then((response) => {
+            this.employees2 = response.data;
+        }).catch((error) => {
+            console.log(error.response.data);
+        });
+
     }
 
 };
 </script>
+
+<style>
+.d-card-body {
+    overflow: auto;
+    max-width: 100%;
+    max-height: 25vh;
+    min-height: 25vh
+}
+</style>

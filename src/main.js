@@ -38,6 +38,16 @@ Vue.use(BootstrapVue)
     // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 
+
+// ==========================================================
+// TOASTS
+// ==========================================================
+// https://vuejsexamples.com/a-light-easy-and-beautiful-toasts/
+import Toast from "vue-toastification";
+// Import the CSS or use your own!
+import "vue-toastification/dist/index.css";
+Vue.use(Toast);
+
 Vue.config.productionTip = false;
 Vue.prototype.$eventHub = new Vue();
 
