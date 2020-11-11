@@ -8,6 +8,10 @@ var _payments = require("./payments");
 var _products = require("./products");
 var _productlines = require("./productlines");
 
+// There we do the jointures
+
+
+
 function initModels(sequelize) {
     console.log('passe')
     var customers = _customers(sequelize, DataTypes);
@@ -18,6 +22,13 @@ function initModels(sequelize) {
     var payments = _payments(sequelize, DataTypes);
     var products = _products(sequelize, DataTypes);
     var productlines = _productlines(sequelize, DataTypes);
+
+    payments.belongsTo(customers, {
+        foreignKey: 'customer_id',
+    });
+    // sequelize.sync({ force: true })
+
+
 
     return {
         customers,

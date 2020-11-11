@@ -7,68 +7,45 @@
             <h3 class="page-title">Data Tables</h3>
         </div>
     </div>
-    <!-- Default Light Table -->
-    <div class="row">
-        <div class="col">
-            <div class="card card-small mb-4">
-                <div class="card-header border-bottom">
-                    <h6 class="m-0">Get {{employees.length}} employees from existing classicmodels SQL table using front end GenericAxiosServices.js + Back end </h6>
-                </div>
-                <div class="card-body p-0 pb-3 text-center" style="overflow:auto;max-height:400px">
-                    <!-- GENERATING TABLE -->
-                    <table class="table table-dark mb-0">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th v-for="(key,value) in employees[0]" :key="$index">{{value}} </th>
-                            </tr>
-                        </thead>
-                        <tr v-for="e in employees" :key="$index">
-                            <th v-for="(key,value) in e">{{key}} </th>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Default Dark Table -->
-    <div class="row">
-        <div class="col">
-
-        </div>
-    </div>
+    <crudgenerictable :table_name="'offices'" :disabled_inputs='["id","created_at","deleted_at","updated_at"]'></crudgenerictable>
+    <crudgenerictable :table_name="'customers'" :disabled_inputs='["id","created_at","deleted_at","updated_at"]'></crudgenerictable>
+    <crudgenerictable :table_name="'employees'" :disabled_inputs='["id","created_at","deleted_at","updated_at"]'></crudgenerictable>
+    <crudgenerictable :table_name="'products'" :disabled_inputs='["id","created_at","deleted_at","updated_at"]'></crudgenerictable>
 </div>
 </template>
 
 <script>
 import GenericAxiosServices from '@/api-services/GenericAxiosServices';
+// PERSONAL COMPONENTS
+import crudgenerictable from "./CrudGenericTable.vue";
 
 export default {
     data() {
         return {
-            customers: [],
-            employees:[]
+
         };
     },
-    methods: {},
-    computed: {},
-    created() {
-        GenericAxiosServices.getAll("employees").then((response) => {
-            console.log(response.data);
-            this.employees = response.data
-        }).catch((error) => {
-            console.log(error.response.data);
-        });
+    components: {
+        crudgenerictable
+    },
+    methods: {
 
-        // GET QUERY USING GENERIC CRUD AND PARAMS EXAMPLE
-   /*    GenericAxiosServices.getAll("employees", {
-            "id": 2
-        }).then((response) => {
-            console.log(response.data);
-            this.employees = response.data
-        }).catch((error) => {
-            console.log(error.response.data);
-        }); */
+    },
+    computed: {
+
+    },
+    created() {
 
     }
+
 };
+// GET QUERY USING GENERIC CRUD AND PARAMS EXAMPLE
+/*    GenericAxiosServices.getAll("employees", {
+         "id": 2
+     }).then((response) => {
+         console.log(response.data);
+         this.employees = response.data
+     }).catch((error) => {
+         console.log(error.response.data);
+     }); */
 </script>

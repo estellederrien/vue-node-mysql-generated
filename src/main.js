@@ -27,7 +27,16 @@ const store = new Vuex.Store(Store)
 
 ShardsVue.install(Vue);
 
+
 Vue.component('default-layout', Default);
+
+
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+
+// Install BootstrapVue
+Vue.use(BootstrapVue)
+    // Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
 
 Vue.config.productionTip = false;
 Vue.prototype.$eventHub = new Vue();

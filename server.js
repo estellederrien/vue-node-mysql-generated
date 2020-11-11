@@ -98,43 +98,52 @@ const middleware = require("./app_system/middleware.js");
 
 
 // ------------------------------------
-// MYSQL PARAMS
+// CLASSICAL MYSQL PARAMS
 // -------------------------------
-const token = {
+const mysql_token = {
     user: config.mysql.user,
     password: config.mysql.password,
     host: config.mysql.host,
     database: config.mysql.db_name,
 };
-const connection = mysql.createConnection(token);
 
 // ------------------------------------
 // SEQUELIZE PARAMS
 // -------------------------------
-const sequelize = new Sequelize(config.mysql.db_name, config.mysql.user, config.mysql.password, {
-    dialect: config.mysql.dialect,
-    host: config.mysql.host,
-    port: config.mysql.port,
-    pool: {
-        max: 5,
-        min: 0,
-        idle: 10000,
-    },
-});
+
+if (config.chosen_db.name === "mysql") {
+    var sequelize = new Sequelize(config.mysql.db_name, config.mysql.user, config.mysql.password, {
+        dialect: config.mysql.dialect,
+        host: config.mysql.host,
+        port: config.mysql.port,
+        pool: {
+            max: 5,
+            min: 0,
+            idle: 10000,
+        },
+    });
+} else if (config.chosen_db.name === "sqlite") {
+    var sequelize = new Sequelize({
+        dialect: "sqlite",
+        storage: config.sqlite.storage_path
+    });
+}
+
 
 
 /*
- * Connection using mysql module
+ * Connection using CLASSICAL MYSQL
  * @params db
  * @return none
  * @error  none
  */
-function mysql_connection(connection) {
+function mysql_connection() {
+    const connection = mysql.createConnection(mysql_token);
     connection.connect(function(error) {
         if (!!error) {
             console.log(error);
         } else {
-            console.log("Connected!:)");
+            console.log("Connected to the Mysql db using mysql module!:)");
         }
     });
 }
@@ -146,11 +155,12 @@ function mysql_connection(connection) {
  * @return none
  * @error  none
  */
-async function mysql_sequelize_connection(sequelize) {
+async function sequelize_connection(sequelize) {
+
     await sequelize
         .authenticate()
         .then(() => {
-            console.log("Connection to MYSQL by SEQUELIZE has been established successfully.");
+            console.log("Sequelize connection OK.");
         })
         .catch((err) => {
             console.error("Unable to connect to the database:", err);
@@ -198,8 +208,19 @@ async function generate_routes(models) {
             "/api/" + key, require("./cruds/generic_crud_mysql.js")(express, sequelize, my_model, middleware)
         );
     })
+
+
 }
 
+
+
+
+// -------------------------------
+// CALL FUNCTIONS
+// -------------------------------
+
+sequelize_connection(sequelize);
+import_models();
 
 
 // ------------------------------------
@@ -265,12 +286,6 @@ function connect_sqlite() {
             console.error("Unable to connect to the database:", err);
         });
 }
-// -------------------------------
-// CALL FUNCTIONS
-// -------------------------------
-mysql_connection(connection);
-load_auth(connection);
-import_models();
 
 
 // -------------------------------
