@@ -46,7 +46,7 @@ axios.get("/api/employees", {
         return qs.stringify(params)
     }
 }).then((response) => {
-    this.employees2 = response.data;
+    this.employees = response.data;
 }).catch((error) => {
     console.log(error.response.data);
 });
@@ -127,7 +127,7 @@ axios.get("/api/employees", {
         return qs.stringify(params)
     }
 }).then((response) => {
-    this.employees2 = response.data;
+    this.employees = response.data;
 }).catch((error) => {
     console.log(error.response.data);
 });
