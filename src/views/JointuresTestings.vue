@@ -37,6 +37,7 @@
 <script>
 import GenericAxiosServices from '@/api-services/GenericAxiosServices';
 import axios from 'axios';
+import qs from 'qs';
 export default {
     data() {
         return {
@@ -57,12 +58,15 @@ export default {
         // JOINTURE EXAMPLE 1
         axios.get("/api/employees", {
             "params": {
-                "where": {
-                    "id": 2
+                where: {
+                    id: 2
                 },
-                "include": {
-                    "name": "offices"
-                }
+                include: [{
+                    model: "offices"
+                }]
+            },
+            paramsSerializer: params => {
+                return qs.stringify(params)
             }
         }).then((response) => {
             this.employees = response.data;
@@ -73,12 +77,13 @@ export default {
         // JOINTURE EXAMPLE 2
         axios.get("/api/employees", {
             "params": {
-                "where": {
-                    "id": 4
-                },
-                "include": {
-                    "name": "offices"
+                attributes: ['lastName', 'firstName'],
+                where: {
+                    id: 4
                 }
+            },
+            paramsSerializer: params => {
+                return qs.stringify(params)
             }
         }).then((response) => {
             this.employees2 = response.data;

@@ -14,23 +14,19 @@ module.exports = (express, sequelize, model, middleware, models) => {
             });
     };
 
+
     // =========
     // Read many
     // =========
     const readMany = (req, res) => {
-        // RECEIVING WHERE PARAMS
-        if (req.query.where) {
-            req.query.where = JSON.parse(req.query.where)
-        }
-        // RECEIVING JOINTURE NAME 
+
         if (req.query.include) {
-            var myobj = JSON.parse(req.query.include);
-            var my_model = eval("models." + myobj.name)
+            req.query.include[0].model = eval("models." + req.query.include[0].model)
         }
-        model.findAll({
-                where: req.query.where,
-                include: my_model
-            })
+
+        model.findAll(
+                req.query
+            )
             .then(function(dbModel) {
                 res.json(dbModel);
             })
