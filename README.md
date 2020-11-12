@@ -28,7 +28,7 @@ No need to write back end code in a relational env any more, using theses techno
 
    
 ```
-   // COOL VUE.JS GET QUERY USING WHERE CLAUSE AND A JOINTURE !
+   // ** COOL VUE.JS GET QUERY USING WHERE CLAUSE, 2 COLUMNS AND A JOINTURE ! ** Easyyy !
    // Please add  employees.belongsTo(offices, { foreignKey: 'officeCode' }); in init-models.js
         
 axios.get("/api/employees", {
