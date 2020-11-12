@@ -28,28 +28,28 @@ No need to write back end code in a relational env any more, using theses techno
 
    
 ```
-   // VUE.JS GET QUERY USING WHERE CLAUSE AND A JOINTURE !
+   // COOL VUE.JS GET QUERY USING WHERE CLAUSE AND A JOINTURE !
    // Please add  employees.belongsTo(offices, { foreignKey: 'officeCode' }); in init-models.js
         
+axios.get("/api/employees", {
+    "params": {
+        attributes: ['lastName', 'firstName'],
+        where: {
+            id: 4
+        },
+        include: [{
+            model: "offices"
+        }]
+    },
+    paramsSerializer: params => {
+        return qs.stringify(params)
+    }
+}).then((response) => {
+    this.employees2 = response.data;
+}).catch((error) => {
+    console.log(error.response.data);
+});
 
-                axios.get("/api/employees", {
-            "params": {
-                attributes: ['lastName', 'firstName'],
-                where: {
-                    id: 4
-                },
-                include: [{
-                    model: "offices"
-                }]
-            },
-            paramsSerializer: params => {
-                return qs.stringify(params)
-            }
-        }).then((response) => {
-            this.employees2 = response.data;
-        }).catch((error) => {
-            console.log(error.response.data);
-        });
 
  ```
  
