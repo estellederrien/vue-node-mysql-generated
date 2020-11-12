@@ -71,6 +71,9 @@ axios.get("/api/employees", {
 - <b>Generate Models and Routes from an existing Mysql, as a Standalone server( Eventually no Middleware support) </b>: 
 - xMysql : https://github.com/o1lab/xmysql ( Demo can't work on Heroku du to heroku ports limitation, it has to be installed on a second node.js server)
 
+<b>Qs:</b>
+- Axios Vue.js front end Get array serializer : https://www.npmjs.com/package/qs
+
 <b> 2 Back end generics REST CRUDS files , based on the sequelize-router code and another Githuber code: </b>
 Theses files are really usefull when you need to build a great middleware back end , you have to override them . The middleware is for example needed to check wherever the  user is auth or not.
  - generic_crud_mongodb.js
@@ -109,21 +112,24 @@ Truth or legend ?
    // ON EST DANS VUE.JS , ON A LA GROSSE FLEMME DECRIRE DU CODE BACK END OU DU SQL POUR FAIR UNE JOINTURE
    // N'oubliez pas d'ajouter : employees.belongsTo(offices, { foreignKey: 'officeCode' }); dans le fichier init-models.js
         
-
-        axios.get("/api/employees", {
-            "params": {
-                "where": {
-                    "id": 2
-                },
-                "include": {
-                    "name": "offices"
-                }
-            }
-        }).then((response) => {
-            this.employees = response.data;
-        }).catch((error) => {
-            console.log(error.response.data);
-        });
+axios.get("/api/employees", {
+    "params": {
+        attributes: ['lastName', 'firstName'],
+        where: {
+            id: 4
+        },
+        include: [{
+            model: "offices"
+        }]
+    },
+    paramsSerializer: params => {
+        return qs.stringify(params)
+    }
+}).then((response) => {
+    this.employees2 = response.data;
+}).catch((error) => {
+    console.log(error.response.data);
+});
  ```
  
  
@@ -139,6 +145,9 @@ Sequelize:
 Mysql:
 - dbCrud: https://github.com/johnroers/dbCRUD
 - xMysql: https://github.com/o1lab/xmysql  ( Demo can't work on Heroku du to ports limitation)
+
+Qs:
+- Set à sérialiser les params des tableaux lors d'une rqt Axios GET : https://www.npmjs.com/package/qs
 
 On va utiliser les templates suivants pour la démo : 
 
