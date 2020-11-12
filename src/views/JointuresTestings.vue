@@ -80,7 +80,10 @@ export default {
                 attributes: ['lastName', 'firstName'],
                 where: {
                     id: 4
-                }
+                },
+                include: [{
+                    model: "offices"
+                }]
             },
             paramsSerializer: params => {
                 return qs.stringify(params)
