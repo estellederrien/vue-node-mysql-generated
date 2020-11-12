@@ -32,20 +32,25 @@ No need to write back end code in a relational env any more, using theses techno
    // Please add  employees.belongsTo(offices, { foreignKey: 'officeCode' }); in init-models.js
         
 
-        axios.get("/api/employees", {
+                axios.get("/api/employees", {
             "params": {
-                "where": {
-                    "id": 2
+                attributes: ['lastName', 'firstName'],
+                where: {
+                    id: 4
                 },
-                "include": {
-                    "name": "offices"
-                }
+                include: [{
+                    model: "offices"
+                }]
+            },
+            paramsSerializer: params => {
+                return qs.stringify(params)
             }
         }).then((response) => {
-            this.employees = response.data;
+            this.employees2 = response.data;
         }).catch((error) => {
             console.log(error.response.data);
         });
+
  ```
  
  ## Tested modules :       
