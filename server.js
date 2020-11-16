@@ -96,7 +96,7 @@ app.use(
 // ------------------------------------
 // LOAD PERSONAL MIDDLEWARE FUNCTIONS - On charge le MIDDLEWARE , un système de controle de permissions sur les web services
 // -------------------------------
-const middleware = require("./app_system/middleware.js");
+// const middleware = require("./app_system/middleware.js");
 
 
 // -----------------------------------------------------------------------------------------------------------------------
