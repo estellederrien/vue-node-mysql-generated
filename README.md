@@ -103,7 +103,10 @@ Truth or legend ?
 
 - 1. Trouvez une ancienne base de données Mysql, avec quelques anciennes données.
 - 2. Générez tous les modèles Mysql Db dans le répertoire models à l'aide de l'interface de ligne de commande du module Sequelize Auto.<br>
-   Et Pops, c'est tout ! Exécutez l'app avec NPM START , et vous avez toutes vos routes CRUD REST sequelize prêtes à être utilisées, même avec des paramètres WHERE !: Plus besoin de réécrire des fichiers CRUDS, dans un environnement relationnel, ah ah ah, sauf pour les rqts difficiles ou data science! Et vous pouvez toujours ajouter un middleware avancé en toute simplicité (démo bientôt disponible) pour empécher les gens non identifiés d'exécuter un web service REST CRUD .
+   
+ Et Pops, c'est tout ! Exécutez l'app avec NPM START , et vous avez toutes vos routes CRUD REST sequelize prêtes à être utilisées, même avec des paramètres WHERE et des JOINTURES ( A condition d'avoir spécifié avant la jointure dans le fichier init-modelsjs) avec Axios dans le front end !
+   
+   Plus besoin de réécrire des fichiers CRUDS, dans un environnement relationnel, ah ah ah, sauf pour les rqts difficiles ou data science! Et vous pouvez toujours ajouter un middleware avancé en toute simplicité (démo bientôt disponible) pour empécher les gens non identifiés d'exécuter un web service REST CRUD .
 
 ## Dernières infos :
  - Le dépot démontre désormais les jointures réalisées à l'aide de l'ORM sequelize . Cliquez sur la démo heroku pour en voir plus.
