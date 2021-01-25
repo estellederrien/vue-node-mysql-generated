@@ -16,7 +16,8 @@ No need to write back end code in a relational env any more, using theses techno
   - 1. Find an old Mysql DB, with some gud ol' data ...
   - 2. Generate all Mysql Db models in the models directory in 2 seconds, using the <a href="https://github.com/sequelize/sequelize-auto/">Sequelize Auto module CLI</a>.
   
-  - Trigger NPM START and Pops, that's all, you have all ur sequelize REST CRUD routes ready to get used, even with WHERE clauses params, jointures (U have to specify it in init-models.js before) , and more :<b> No need to write back end code no more, in a relational env , ah ah ah </b>! And you still can add a middleware with ease ( Demo comin soon), Life is cool, now  ! Ah ah ah !
+  - Trigger NPM START and Pops, that's all, you have all ur sequelize REST CRUD routes ready to get used, even with WHERE clauses params, jointures (U have to specify it in init-models.js before) , and more :<b> No need to write back end code no more, in a relational env , ah ah ah </b>! And you still can add a middleware with ease ( Demo comin soon), Life is cool, now  ! Ah ah ah ! <br>
+  The key function is my generate_routes(models) function , it generates REST routes from sequelize models in a LOOP, and it works well ( Tested many times on real apps)! .
   ## Latest depot news :
   - Qs params serializer is needed when doing axios GET queries !
   - GenericAxiosServices.js is not used no more, it is useless. Axios queries are now queriying generic_crud_mysql.js directly.
@@ -108,6 +109,8 @@ Truth or legend ?
  Et Pops, c'est tout ! Exécutez l'app avec NPM START , et vous avez toutes vos routes CRUD REST sequelize prêtes à être utilisées, même avec des paramètres WHERE et des JOINTURES ( A condition d'avoir spécifié avant la jointure dans le fichier init-models.js) avec Axios dans le front end !
    
    Plus besoin de réécrire des fichiers CRUDS, dans un environnement relationnel, ah ah ah, sauf pour les rqts difficiles ou data science! Et vous pouvez toujours ajouter un middleware avancé en toute simplicité (démo bientôt disponible) pour empécher les gens non identifiés d'exécuter un web service REST CRUD .
+   
+   La function permettant cela est ma function my generate_routes(models), qui crée automatiquement les routes REST dans une boucle !
 
 ## Dernières infos :
  - Le dépot démontre désormais les jointures réalisées à l'aide de l'ORM sequelize . Cliquez sur la démo heroku pour en voir plus.
