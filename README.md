@@ -16,8 +16,8 @@ No need to write back end code in a relational env any more, using theses techno
   - 1. Find an old Mysql DB, with some gud ol' data ...
   - 2. Generate all Mysql Db models in the models directory in 2 seconds, using the <a href="https://github.com/sequelize/sequelize-auto/">Sequelize Auto module CLI</a>.
   
-  - Trigger NPM START and Pops, that's all, you have all ur sequelize REST CRUD routes ready to get used, even with WHERE clauses params, jointures (U have to specify it in init-models.js before) , and more :<b> No need to write back end code no more, in a relational env , ah ah ah </b>! And you still can add a middleware with ease ( Demo comin soon), Life is cool, now  ! Ah ah ah ! <br>
-  The key function is my generate_routes(models) function , it generates REST routes from sequelize models in a LOOP, and it works well ( Tested many times on real apps)! .
+  - Trigger NPM START and Pops, that's all, you have all ur sequelize REST CRUD routes ready to get used, even with WHERE clauses params, jointures (U have to specify it in init-models.js before) , and more :<b> No need to write back end code no more, in a relational env , ah ah ah </b>! And you still can add a middleware with ease ( Demo comin soon), Life is cool, now  ! Ah ah ah ! <br><br>
+ -> The key function is my <b>generate_routes(models) </b> function , it generates REST routes from sequelize models in a LOOP, and it works well ( Tested many times on real apps)! .
   ## Latest depot news :
   - Qs params serializer is needed when doing axios GET queries !
   - GenericAxiosServices.js is not used no more, it is useless. Axios queries are now queriying generic_crud_mysql.js directly.
